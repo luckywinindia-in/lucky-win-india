@@ -1,1 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lucky Win India – Diwali Bumper Offer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--panel:#0d0d0d;--line:#3a3017;--gold:#d4af37;--gold2:#f0d27a;--text:#fff;--muted:#b9b4a3;--err:#ff6b6b;--ok:#6fd49b}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.5}
+.wrap{max-width:560px;margin:0 auto;padding:0 18px 48px}
+.offer{background:var(--gold);color:#000;text-align:center;font-weight:600;padding:10px 14px;font-size:14px}
+h1,h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;margin:0}
+h1{font-size:44px;line-height:1.05;margin:34px 0 12px;color:var(--gold2)}
+h2{font-size:28px;color:var(--gold2);margin-bottom:10px}
+p{margin:0 0 14px;color:var(--muted)}
+.prizes{list-style:none;margin:18px 0 8px;padding:0;border-top:1px solid var(--line)}
+.prizes li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:16px 0;border-bottom:1px solid var(--line);font-family:"Cormorant Garamond",Georgia,serif;font-size:24px;font-weight:600}
+.prizes span{font-family:Inter,sans-serif;font-size:13px;color:var(--gold);font-weight:500}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:22px 18px;margin-top:30px}
+.tabs{display:flex;gap:8px;margin-bottom:18px}
+.tab{flex:1;padding:11px;border:1px solid var(--line);background:none;color:var(--muted);font:inherit;font-weight:600;border-radius:4px}
+.tab[aria-selected=true]{background:var(--gold);color:#000;border-color:var(--gold)}
+label{display:block;font-size:14px;margin:12px 0 6px;color:var(--text)}
+input{width:100%;padding:13px;border:1px solid var(--line);background:#000;color:var(--text);font:inherit;border-radius:4px}
+input:focus,button:focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
+.btn{width:100%;margin-top:18px;padding:14px;border:0;background:var(--gold);color:#000;font:inherit;font-weight:700;font-size:16px;border-radius:4px;cursor:pointer}
+.btn[disabled]{background:#2a2410;color:#7d7455;cursor:not-allowed}
+.btn.alt{background:none;border:1px solid var(--gold);color:var(--gold)}
+.msg{margin-top:14px;font-size:14px;min-height:20px}
+.msg.err{color:var(--err)}.msg.ok{color:var(--ok)}
+.bar{height:8px;background:#1a1608;border-radius:4px;overflow:hidden;margin:6px 0 14px}
+.bar i{display:block;height:100%;background:var(--gold);width:0;transition:width .3s}
+.hide{display:none}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.link{background:none;border:0;color:var(--gold);font:inherit;text-decoration:underline;padding:6px}
+.note{font-size:12px;color:var(--muted);margin-top:10px}
+footer{margin-top:40px;font-size:12px;color:var(--muted);text-align:center}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+</head>
+<body>
+<div class="offer">Diwali Bumper Offer – registration is open</div>
+<main class="wrap">
+  <h1>Lucky Win India</h1>
+  <p>Register for just ₹11 and enter the Diwali Bumper draw.</p>
 
+  <ul class="prizes" id="prizes">
+    <li>Land Rover Defender <span>Grand prize</span></li>
+    <li>iPhone Pro Max <span>Prize</span></li>
+    <li>10g Gold <span>Prize</span></li>
+  </ul>
+
+  <section class="card" id="authCard">
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" id="tabSignup" aria-selected="true">Sign up</button>
+      <button class="tab" role="tab" id="tabLogin" aria-selected="false">Log in</button>
+    </div>
+    <form id="authForm" novalidate>
+      <div id="nameRow">
+        <label for="fullName">Full name</label>
+        <input id="fullName" autocomplete="name">
+        <label for="phone">Mobile number</label>
+        <input id="phone" inputmode="numeric" autocomplete="tel" placeholder="10-digit number">
+      </div>
+      <label for="email">Email</label>
+      <input id="email" type="email" autocomplete="email">
+      <label for="password">Password (min 6 characters)</label>
+      <input id="password" type="password" autocomplete="current-password">
+      <button class="btn" id="authBtn" type="submit">Create account</button>
+      <div class="msg" id="authMsg" role="status"></div>
+    </form>
+  </section>
+
+  <section class="card hide" id="dashCard">
+    <div class="top">
+      <h2 id="hello">Welcome</h2>
+      <button class="link" id="logoutBtn">Log out</button>
+    </div>
+    <p>Step 1: share this offer with 5 WhatsApp groups or friends. Step 2: pay ₹11 to register.</p>
+    <div><strong id="shareCount">0</strong> of 5 shares done</div>
+    <div class="bar"><i id="shareBar"></i></div>
+    <button class="btn alt" id="shareBtn">Share on WhatsApp</button>
+    <button class="btn" id="registerBtn" disabled>Register for ₹11</button>
+    <div class="msg" id="dashMsg" role="status"></div>
+    <div class="note">Your referral link: <span id="refLink"></span></div>
+  </section>
+
+  <footer>Lucky Win India</footer>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0/dist/umd/supabase.js"></script>
+<script>
+const SUPABASE_URL = "https://othynttlaxymqjudntdq.supabase.co";
+const SUPABASE_KEY = "sb_publishable_B9C5HIxMHlZ8ItrV7neBHw_LTF-H_ir";
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const $ = id => document.getElementById(id);
+let mode = "signup", profile = null;
+
+// remember referral code from link (?ref=XXXX)
+try { const r = new URLSearchParams(location.search).get("ref"); if (r) localStorage.setItem("ref", r); } catch (e) {}
+const savedRef = () => { try { return localStorage.getItem("ref"); } catch (e) { return null; } };
+
+function say(el, text, kind) { el.textContent = text; el.className = "msg " + (kind || ""); }
+
+function setMode(m) {
+  mode = m;
+  $("tabSignup").setAttribute("aria-selected", m === "signup");
+  $("tabLogin").setAttribute("aria-selected", m === "login");
+  $("nameRow").classList.toggle("hide", m === "login");
+  $("authBtn").textContent = m === "signup" ? "Create account" : "Log in";
+  $("password").autocomplete = m === "signup" ? "new-password" : "current-password";
+  say($("authMsg"), "");
+}
+$("tabSignup").onclick = () => setMode("signup");
+$("tabLogin").onclick = () => setMode("login");
+
+$("authForm").onsubmit = async e => {
+  e.preventDefault();
+  const email = $("email").value.trim(), password = $("password").value;
+  const msg = $("authMsg");
+  if (!email || password.length < 6) return say(msg, "Enter a valid email and a password of at least 6 characters.", "err");
+  $("authBtn").disabled = true;
+  try {
+    if (mode === "signup") {
+      const name = $("fullName").value.trim(), phone = $("phone").value.trim();
+      if (!name || !/^\d{10}$/.test(phone)) return say(msg, "Enter your full name and a 10-digit mobile number.", "err");
+      const { data, error } = await sb.auth.signUp({ email, password, options: { data: { full_name: name } } });
+      if (error) return say(msg, error.message, "err");
+      if (!data.session) return say(msg, "Account created. Check your email to confirm, then log in.", "ok");
+      await sb.from("profiles").update({ phone, referred_by: savedRef() }).eq("id", data.user.id);
+    } else {
+      const { error } = await sb.auth.signInWithPassword({ email, password });
+      if (error) return say(msg, error.message, "err");
+    }
+  } finally { $("authBtn").disabled = false; }
+};
+
+async function loadProfile(user) {
+  const { data, error } = await sb.from("profiles").select("*").eq("id", user.id).single();
+  if (error) return say($("dashMsg"), "Could not load your profile. Please refresh.", "err");
+  profile = data; renderDash();
+}
+
+function renderDash() {
+  $("hello").textContent = "Welcome" + (profile.full_name ? ", " + profile.full_name : "");
+  const n = Math.min(profile.shares_done || 0, 5);
+  $("shareCount").textContent = n;
+  $("shareBar").style.width = (n / 5 * 100) + "%";
+  $("registerBtn").disabled = n < 5;
+  $("refLink").textContent = location.origin + location.pathname + "?ref=" + profile.referral_code;
+}
+
+$("shareBtn").onclick = async () => {
+  if (!profile) return;
+  const link = location.origin + location.pathname + "?ref=" + profile.referral_code;
+  const text = "Lucky Win India Diwali Bumper Offer: win a Land Rover Defender, iPhone Pro Max or 10g gold. Register here: " + link;
+  window.open("https://wa.me/?text=" + encodeURIComponent(text), "_blank");
+  const next = Math.min((profile.shares_done || 0) + 1, 5);
+  const { error } = await sb.from("profiles").update({ shares_done: next }).eq("id", profile.id);
+  if (error) return say($("dashMsg"), "Could not save your share. Try again.", "err");
+  profile.shares_done = next; renderDash();
+  say($("dashMsg"), next < 5 ? "Share saved. " + (5 - next) + " more to go." : "All 5 shares done. You can register now.", "ok");
+};
+
+$("registerBtn").onclick = () => say($("dashMsg"), "Payment is not connected yet. It will be added in the next step.", "err");
+
+$("logoutBtn").onclick = () => sb.auth.signOut();
+
+function show(user) {
+  $("authCard").classList.toggle("hide", !!user);
+  $("dashCard").classList.toggle("hide", !user);
+  if (user) loadProfile(user); else profile = null;
+}
+sb.auth.onAuthStateChange((_e, session) => show(session ? session.user : null));
+sb.auth.getSession().then(({ data }) => show(data.session ? data.session.user : null));
+setMode("signup");
+</script>
+</body>
+</html>
