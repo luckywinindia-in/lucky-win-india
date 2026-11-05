@@ -1,58 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
-<title>Admin – Lucky Win India</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Lucky Win India | Admin</title>
 <style>
-:root{--bg:#000;--panel:#0d0d0d;--line:#3a3017;--gold:#d4af37;--gold2:#f0d27a;--text:#fff;--muted:#b9b4a3;--err:#ff6b6b;--ok:#6fd49b}
-*{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.5}
-.wrap{max-width:900px;margin:0 auto;padding:18px 16px 60px}
-h1,h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;margin:0;color:var(--gold2)}
-h1{font-size:34px}h2{font-size:26px;margin:34px 0 10px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:18px;margin-top:16px}
-label{display:block;font-size:14px;margin:12px 0 6px}
-input,select{width:100%;padding:12px;border:1px solid var(--line);background:#000;color:var(--text);font:inherit;border-radius:4px}
-.btn{padding:12px 16px;border:0;background:var(--gold);color:#000;font:inherit;font-weight:700;border-radius:4px;cursor:pointer;margin-top:14px}
-.btn.alt{background:none;border:1px solid var(--gold);color:var(--gold)}
-.btn.sm{padding:6px 10px;margin:0;font-size:13px}
-.msg{margin-top:12px;font-size:14px;min-height:20px}
-.err{color:var(--err)}.ok{color:var(--ok)}
-.hide{display:none}
-.top{display:flex;justify-content:space-between;align-items:center;gap:10px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
-.stat{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:14px}
-.stat b{display:block;font-size:28px;color:var(--gold2);font-family:"Cormorant Garamond",Georgia,serif}
-.stat span{font-size:13px;color:var(--muted)}
-.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:6px}
-table{border-collapse:collapse;width:100%;font-size:14px;white-space:nowrap}
-th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line)}
-th{color:var(--gold);font-weight:600;background:var(--panel)}
-.empty{color:var(--muted);padding:14px}
-.draw{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-</style>
-</head>
-<body>
-<div class="wrap">
-  <h1>Lucky Win India – Admin</h1>
-
-  <section class="card" id="login">
-    <form id="loginForm">
-      <label for="email">Email</label>
-      <input id="email" type="email" autocomplete="email">
-      <label for="password">Password</label>
-      <input id="password" type="password" autocomplete="current-password">
-      <button class="btn" type="submit">Log in</button>
-      <div class="msg err" id="loginMsg"></div>
-    </form>
-  </section>
-
-  <section class="card hide" id="denied">
-    <p>This account is not an admin.</p>
-    <button class="btn alt" onclick="sb.auth.signOut()">Log out</button>
-  </section>
-
-  <se
+:root{color-scheme:dark;--bg:#080808;--panel:#141414;--line:#3b321b;--gold:#d4af37;--text:#fff;--muted:#bdb7a5;--red:#ff7777;--green:#75d69b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px system-ui,Arial,sans-serif}
+main{max-width:1100px;margin:auto;padding:22px 16px 60px}h1,h2{color:var(--gold);margin:0 0 14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;margin:16px 0}
+label{display:block;margin:12px 0 6px;color:var(--muted)}input{width:100%;padding:12px;border:1px solid var(--line);border-radius:7px;background:#080808;color:white;font:inherit}
+button{border:0;border-radius:7px;padding:11px 16px;background:var(--gold);font-weight:700;cursor:pointer;margin:10px 8px 0 0}
+button.secondary{background:transparent;border:1px solid var(--gold);color:var(--gold)}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.stat{padding:14px;border:1px solid var(--line);border-radius:9px}.stat b{display:block;font-size:27px;color:var(--gold)}
+small,.muted{color:var(--muted)}.msg{min-height:22px;margin-top:12px}.error{color:var(--red)}.success{color:var(--green)}.hidden{display:none!important}
+.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;white-space:nowrap}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}th{color:var(--gold)}
+.toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.toolbar input{flex:1;min-width:180px}
+@media(max-width:560px){.stats{grid-template-columns:1fr}.card{padding:14px}}
+</style></head>
+<body><main>
+<header><h1>Lucky Win India — Admin</h1><p class="muted">Secure account overview · Read-only</p></header>
+<section class="card" id="loginCard"><h2>Admin sign in</h2>
+<form id="loginForm"><label for="email">Admin email</label><input id="email" type="email" autocomplete="username" required>
+<label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required>
+<button type="submit" id="loginBtn">Log in</button><p id="loginMsg" class="msg" role="status"></p></form></section>
+<section id="deniedCard" class="card hidden"><h2>Access not allowed</h2><p>Your signed-in account does not have the admin role. Ask the project owner to grant the role in Supabase Auth user app metadata.</p><button class="secondary" id="deniedLogout">Log out</button></section>
+<section id="dashboard" class="hidden">
+<div class="toolbar"><div><h2>Dashboard</h2><small id="signedIn"></small></div><span style="flex:1"></span><button class="secondary" id="refreshBtn">Refresh</button><button class="secondary" id="logoutBtn">Log out</button></div>
+<div class="stats"><div class="stat"><b id="totalUsers">—</b><small>Total profiles loaded</small></div><div class="stat"><b id="sharesTotal">—</b><small>Recorded share clicks*</small></div><div class="stat"><b id="completed">—</b><small>Profiles at 5 recorded clicks*</small></div></div>
+<section class="card"><div class="toolbar"><h2 style="margin:0">Registered accounts</h2><input id="search" type="search" placeholder="Search name, email, phone or referral"></div>
+<p class="muted">This view displays profile records only. It does not verify payments or actual social-media shares.</p>
+<div class="tablewrap"><table><thead><tr><th>Name</th><th>Phone</th><th>Referral code</th><th>Referred by</th><th>Recorded shares*</th><th>Account ID</th></tr></thead><tbody id="rows"><tr><td colspan="6">Loading…</td></tr></tbody></table></div>
+<p id="dataMsg" class="msg" role="status"></p></section>
+</section>
+<footer class="muted"><small>*Share counts are client-recorded clicks, not proof of sharing.</small></footer>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0/dist/umd/supabase.js"></script>
+<script>
+const SUPABASE_URL="https://othynttlaxymqjudntdq.supabase.co";
+const SUPABASE_KEY="sb_publishable_B9C5HIxMHlZ8ItrV7neBHw_LTF-H_ir";
+const sb=supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+const $=id=>document.getElementById(id);let records=[];
+function message(id,text,type=""){const el=$(id);el.textContent=text;el.className="msg "+type}
+function screen(which){$("loginCard").classList.toggle("hidden",which!=="login");$("deniedCard").classList.toggle("hidden",which!=="denied");$("dashboard").classList.toggle("hidden",which!=="dashboard")}
+function isAdmin(user){return user?.app_metadata?.role==="admin"}
+async function load(user){
+ if(!isAdmin(user)){screen("denied");return}
+ screen("dashboard");$("signedIn").textContent="Signed in: "+(user.email||"admin");
+ message("dataMsg","Loading accounts…");
+ const {data,error}=await sb.from("profiles").select("id,full_name,phone,referral_code,referred_by,shares_done").order("id",{ascending:false}).limit(500);
+ if(error){records=[];render();message("dataMsg","Could not load profiles: "+error.message,"error");return}
+ records=data||[];render();message("dataMsg",records.length+" profile(s) loaded.","success");
+}
+function render(){
+ const term=$("search").value.trim().toLowerCase();
+ const filtered=records.filter(r=>[r.full_name,r.phone,r.referral_code,r.referred_by,r.id].some(v=>String(v??"").toLowerCase().includes(term)));
+ $("totalUsers").textContent=records.length;
+ $("sharesTotal").textContent=records.reduce((s,r)=>s+Number(r.shares_done||0),0);
+ $("completed").textContent=records.filter(r=>Number(r.shares_done||0)>=5).length;
+ const body=$("rows");body.replaceChildren();
+ if(!filtered.length){const tr=document.createElement("tr"),td=document.createElement("td");td.colSpan=6;td.textContent="No matching accounts";tr.append(td);body.append(tr);return}
+ for(const r of filtered){const tr=document.createElement("tr");[r.full_name,r.phone,r.referral_code,r.referred_by,r.shares_done,r.id].forEach(v=>{const td=document.createElement("td");td.textContent=String(v??"—");tr.append(td)});body.append(tr)}
+}
+$("loginForm").addEventListener("submit",async e=>{e.preventDefault();$("loginBtn").disabled=true;message("loginMsg","Signing in…");try{const {data,error}=await sb.auth.signInWithPassword({email:$("email").value.trim(),password:$("password").value});if(error){message("loginMsg",error.message,"error");return}await load(data.user)}finally{$("loginBtn").disabled=false}});
+async function logout(){await sb.auth.signOut();records=[];screen("login")}
+$("logoutBtn").onclick=logout;$("deniedLogout").onclick=logout;
+$("refreshBtn").onclick=async()=>{const {data}=await sb.auth.getUser();if(data.user)await load(data.user)};
+$("search").addEventListener("input",render);
+sb.auth.onAuthStateChange((_event,session)=>{if(session?.user)load(session.user);else screen("login")});
+sb.auth.getSession().then(({data})=>{if(data.session?.user)load(data.session.user)});
+</script></body></html>
