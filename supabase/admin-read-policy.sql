@@ -57,10 +57,6 @@ on public.profiles for select to authenticated
 using (auth.uid() = id);
 
 drop policy if exists "Users can update own basic profile" on public.profiles;
-create policy "Users can update own basic profile"
-on public.profiles for update to authenticated
-using (auth.uid() = id)
-with check (auth.uid() = id);
 
 drop policy if exists "Admin can read all profiles" on public.profiles;
 create policy "Admin can read all profiles"
