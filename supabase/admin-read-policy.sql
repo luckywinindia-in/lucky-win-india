@@ -47,7 +47,7 @@ $$;
 drop trigger if exists lwi_auth_user_profile on auth.users;
 create trigger lwi_auth_user_profile
 after insert on auth.users
-for each row execute procedure public.lwi_create_profile();
+for each row execute function public.lwi_create_profile();
 
 alter table public.profiles enable row level security;
 
@@ -85,5 +85,8 @@ create index if not exists profiles_referred_by_idx
   on public.profiles (referred_by);
 
 grant usage on schema public to authenticated;
+-- Keep profile access read-only for browser sessions. The signup trigger writes
+-- through its SECURITY DEFINER function; users must not write profile rows directly.
+revoke all on table public.profiles from public, anon, authenticated;
 grant select on public.profiles to authenticated;
 revoke all on function public.lwi_create_profile() from public, anon, authenticated;
