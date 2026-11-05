@@ -1,71 +1,36 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow"><title>Lucky Win India | Admin</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Lucky Win India · Admin</title>
+<link rel="preconnect" href="https://othynttlaxymqjudntdq.supabase.co">
 <style>
-:root{color-scheme:dark;--bg:#080808;--panel:#141414;--line:#3b321b;--gold:#d4af37;--text:#fff;--muted:#bdb7a5;--red:#ff7777;--green:#75d69b}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px system-ui,Arial,sans-serif}
-main{max-width:1100px;margin:auto;padding:22px 16px 60px}h1,h2{color:var(--gold);margin:0 0 14px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;margin:16px 0}
-label{display:block;margin:12px 0 6px;color:var(--muted)}input{width:100%;padding:12px;border:1px solid var(--line);border-radius:7px;background:#080808;color:white;font:inherit}
-button{border:0;border-radius:7px;padding:11px 16px;background:var(--gold);font-weight:700;cursor:pointer;margin:10px 8px 0 0}
-button.secondary{background:transparent;border:1px solid var(--gold);color:var(--gold)}
-.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.stat{padding:14px;border:1px solid var(--line);border-radius:9px}.stat b{display:block;font-size:27px;color:var(--gold)}
-small,.muted{color:var(--muted)}.msg{min-height:22px;margin-top:12px}.error{color:var(--red)}.success{color:var(--green)}.hidden{display:none!important}
-.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;white-space:nowrap}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}th{color:var(--gold)}
-.toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.toolbar input{flex:1;min-width:180px}
-@media(max-width:560px){.stats{grid-template-columns:1fr}.card{padding:14px}}
-</style></head>
-<body><main>
-<header><h1>Lucky Win India — Admin</h1><p class="muted">Secure account overview · Read-only</p></header>
-<section class="card" id="loginCard"><h2>Admin sign in</h2>
-<form id="loginForm"><label for="email">Admin email</label><input id="email" type="email" autocomplete="username" required>
-<label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required>
-<button type="submit" id="loginBtn">Log in</button><p id="loginMsg" class="msg" role="status"></p></form></section>
-<section id="deniedCard" class="card hidden"><h2>Access not allowed</h2><p>Your signed-in account does not have the admin role. Ask the project owner to grant the role in Supabase Auth user app metadata.</p><button class="secondary" id="deniedLogout">Log out</button></section>
-<section id="dashboard" class="hidden">
-<div class="toolbar"><div><h2>Dashboard</h2><small id="signedIn"></small></div><span style="flex:1"></span><button class="secondary" id="refreshBtn">Refresh</button><button class="secondary" id="logoutBtn">Log out</button></div>
-<div class="stats"><div class="stat"><b id="totalUsers">—</b><small>Total profiles loaded</small></div><div class="stat"><b id="sharesTotal">—</b><small>Recorded share clicks*</small></div><div class="stat"><b id="completed">—</b><small>Profiles at 5 recorded clicks*</small></div></div>
-<section class="card"><div class="toolbar"><h2 style="margin:0">Registered accounts</h2><input id="search" type="search" placeholder="Search name, email, phone or referral"></div>
-<p class="muted">This view displays profile records only. It does not verify payments or actual social-media shares.</p>
-<div class="tablewrap"><table><thead><tr><th>Name</th><th>Phone</th><th>Referral code</th><th>Referred by</th><th>Recorded shares*</th><th>Account ID</th></tr></thead><tbody id="rows"><tr><td colspan="6">Loading…</td></tr></tbody></table></div>
-<p id="dataMsg" class="msg" role="status"></p></section>
-</section>
-<footer class="muted"><small>*Share counts are client-recorded clicks, not proof of sharing.</small></footer>
-</main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0/dist/umd/supabase.js"></script>
+:root{color-scheme:dark;--bg:#090909;--panel:#151515;--line:#40351c;--gold:#d4af37;--text:#fff;--muted:#c1bba9;--red:#ff8585;--green:#79d9a0}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}main{max-width:1100px;margin:auto;padding:22px 16px 60px}h1,h2{color:var(--gold)}.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;margin:16px 0}
+label{display:block;margin:12px 0 6px;color:var(--muted)}input{width:100%;padding:12px;border:1px solid var(--line);border-radius:7px;background:#090909;color:white;font:inherit}button{border:0;border-radius:7px;padding:11px 16px;background:var(--gold);font-weight:700;cursor:pointer;margin:10px 8px 0 0}button.alt{background:transparent;border:1px solid var(--gold);color:var(--gold)}button:disabled{opacity:.5}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.stat{padding:14px;border:1px solid var(--line);border-radius:9px}.stat b{display:block;font-size:27px;color:var(--gold)}.muted,small{color:var(--muted)}.msg{min-height:22px;margin-top:12px}.error{color:var(--red)}.success{color:var(--green)}.hidden{display:none!important}.toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.toolbar input{flex:1;min-width:180px}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;white-space:nowrap}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}th{color:var(--gold)}@media(max-width:560px){.stats{grid-template-columns:1fr}.card{padding:14px}}
+</style><script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0/dist/umd/supabase.js"></script></head>
+<body><main><header><h1>Lucky Win India · Admin</h1><p class="muted">Private, read-only account dashboard</p></header>
+<section class="card" id="loginCard"><h2>Admin sign in</h2><form id="loginForm"><label for="email">Admin email</label><input id="email" type="email" autocomplete="username" required><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required><button id="loginBtn">Log in</button><p id="loginMsg" class="msg" role="status"></p></form></section>
+<section class="card hidden" id="deniedCard"><h2>Admin access required</h2><p>Your account is signed in, but it does not have the admin role. The project owner must set <code>app_metadata.role = admin</code> in Supabase Auth.</p><button class="alt" id="deniedLogout">Log out</button></section>
+<section id="dashboard" class="hidden"><div class="toolbar"><div><h2>Dashboard</h2><small id="signedIn"></small></div><span style="flex:1"></span><button class="alt" id="refreshBtn">Refresh</button><button class="alt" id="logoutBtn">Log out</button></div>
+<div class="stats"><div class="stat"><b id="totalUsers">—</b><small>Registered accounts</small></div><div class="stat"><b id="referrals">—</b><small>Accounts with referral codes</small></div></div>
+<section class="card"><div class="toolbar"><h2 style="margin:0">Accounts</h2><input id="search" type="search" placeholder="Search name, phone or referral code"></div><div class="tablewrap"><table><thead><tr><th>Name</th><th>Phone</th><th>Referral code</th><th>Referred by</th><th>Created</th><th>Account ID</th></tr></thead><tbody id="rows"><tr><td colspan="6">Loading…</td></tr></tbody></table></div><p id="dataMsg" class="msg" role="status"></p></section></section>
+<footer class="muted"><small>Read-only dashboard. Payment and prize-draw controls are intentionally not enabled.</small></footer></main>
 <script>
-const SUPABASE_URL="https://othynttlaxymqjudntdq.supabase.co";
-const SUPABASE_KEY="sb_publishable_B9C5HIxMHlZ8ItrV7neBHw_LTF-H_ir";
-const sb=supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
-const $=id=>document.getElementById(id);let records=[];
-function message(id,text,type=""){const el=$(id);el.textContent=text;el.className="msg "+type}
-function screen(which){$("loginCard").classList.toggle("hidden",which!=="login");$("deniedCard").classList.toggle("hidden",which!=="denied");$("dashboard").classList.toggle("hidden",which!=="dashboard")}
-function isAdmin(user){return user?.app_metadata?.role==="admin"}
-async function load(user){
- if(!isAdmin(user)){screen("denied");return}
- screen("dashboard");$("signedIn").textContent="Signed in: "+(user.email||"admin");
- message("dataMsg","Loading accounts…");
- const {data,error}=await sb.from("profiles").select("id,full_name,phone,referral_code,referred_by,shares_done").order("id",{ascending:false}).limit(500);
- if(error){records=[];render();message("dataMsg","Could not load profiles: "+error.message,"error");return}
- records=data||[];render();message("dataMsg",records.length+" profile(s) loaded.","success");
-}
-function render(){
- const term=$("search").value.trim().toLowerCase();
- const filtered=records.filter(r=>[r.full_name,r.phone,r.referral_code,r.referred_by,r.id].some(v=>String(v??"").toLowerCase().includes(term)));
- $("totalUsers").textContent=records.length;
- $("sharesTotal").textContent=records.reduce((s,r)=>s+Number(r.shares_done||0),0);
- $("completed").textContent=records.filter(r=>Number(r.shares_done||0)>=5).length;
- const body=$("rows");body.replaceChildren();
- if(!filtered.length){const tr=document.createElement("tr"),td=document.createElement("td");td.colSpan=6;td.textContent="No matching accounts";tr.append(td);body.append(tr);return}
- for(const r of filtered){const tr=document.createElement("tr");[r.full_name,r.phone,r.referral_code,r.referred_by,r.shares_done,r.id].forEach(v=>{const td=document.createElement("td");td.textContent=String(v??"—");tr.append(td)});body.append(tr)}
-}
-$("loginForm").addEventListener("submit",async e=>{e.preventDefault();$("loginBtn").disabled=true;message("loginMsg","Signing in…");try{const {data,error}=await sb.auth.signInWithPassword({email:$("email").value.trim(),password:$("password").value});if(error){message("loginMsg",error.message,"error");return}await load(data.user)}finally{$("loginBtn").disabled=false}});
+(()=>{"use strict";
+const SUPABASE_URL="https://othynttlaxymqjudntdq.supabase.co",SUPABASE_KEY="sb_publishable_B9C5HIxMHlZ8ItrV7neBHw_LTF-H_ir";
+const $=id=>document.getElementById(id),sb=window.supabase?.createClient(SUPABASE_URL,SUPABASE_KEY);let records=[];
+function msg(id,text,type=""){const e=$(id);e.textContent=text;e.className="msg "+type}
+function screen(s){$("loginCard").classList.toggle("hidden",s!=="login");$("deniedCard").classList.toggle("hidden",s!=="denied");$("dashboard").classList.toggle("hidden",s!=="dashboard")}
+function admin(user){return user?.app_metadata?.role==="admin"}
+async function load(user){if(!admin(user)){screen("denied");return}screen("dashboard");$("signedIn").textContent="Signed in: "+(user.email||"admin");msg("dataMsg","Loading accounts…");
+const {data,error}=await sb.from("profiles").select("id,full_name,phone,referral_code,referred_by,created_at").order("created_at",{ascending:false}).limit(1000);
+if(error){records=[];render();msg("dataMsg","Database error: "+error.message,"error");return}records=data||[];render();msg("dataMsg",records.length+" account(s) loaded.","success")}
+function render(){const q=$("search").value.trim().toLowerCase(),list=records.filter(r=>[r.full_name,r.phone,r.referral_code,r.referred_by,r.id].some(v=>String(v??"").toLowerCase().includes(q)));
+$("totalUsers").textContent=records.length;$("referrals").textContent=records.filter(r=>!!r.referral_code).length;const body=$("rows");body.replaceChildren();
+if(!list.length){const tr=document.createElement("tr"),td=document.createElement("td");td.colSpan=6;td.textContent="No matching accounts";tr.append(td);body.append(tr);return}
+for(const r of list){const tr=document.createElement("tr");[r.full_name,r.phone,r.referral_code,r.referred_by,r.created_at?new Date(r.created_at).toLocaleString():"—",r.id].forEach(v=>{const td=document.createElement("td");td.textContent=String(v??"—");tr.append(td)});body.append(tr)}}
+$("loginForm").addEventListener("submit",async e=>{e.preventDefault();$("loginBtn").disabled=true;msg("loginMsg","Signing in…");try{const {data,error}=await sb.auth.signInWithPassword({email:$("email").value.trim(),password:$("password").value});if(error){msg("loginMsg",error.message,"error");return}await load(data.user)}catch(e){msg("loginMsg","Could not sign in. Please try again.","error")}finally{$("loginBtn").disabled=false}});
 async function logout(){await sb.auth.signOut();records=[];screen("login")}
-$("logoutBtn").onclick=logout;$("deniedLogout").onclick=logout;
-$("refreshBtn").onclick=async()=>{const {data}=await sb.auth.getUser();if(data.user)await load(data.user)};
-$("search").addEventListener("input",render);
-sb.auth.onAuthStateChange((_event,session)=>{if(session?.user)load(session.user);else screen("login")});
-sb.auth.getSession().then(({data})=>{if(data.session?.user)load(data.session.user)});
+$("logoutBtn").onclick=logout;$("deniedLogout").onclick=logout;$("refreshBtn").onclick=async()=>{const {data}=await sb.auth.getUser();if(data.user)await load(data.user)};$("search").addEventListener("input",render);
+if(!sb){msg("loginMsg","Account service failed to load. Refresh the page.","error")}else{sb.auth.onAuthStateChange((_e,s)=>{if(s?.user)load(s.user);else screen("login")});sb.auth.getSession().then(({data})=>{if(data.session?.user)load(data.session.user)})}
+})();
 </script></body></html>
