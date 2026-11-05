@@ -90,3 +90,10 @@ grant usage on schema public to authenticated;
 revoke all on table public.profiles from public, anon, authenticated;
 grant select on public.profiles to authenticated;
 revoke all on function public.lwi_create_profile() from public, anon, authenticated;
+
+-- Grant the intended administrator role to the configured admin account.
+-- This updates app_metadata only; it does not change the account password.
+update auth.users
+set raw_app_meta_data =
+  coalesce(raw_app_meta_data, '{}'::jsonb) || jsonb_build_object('role', 'admin')
+where lower(email) = lower('varudroy@gmail.com');
