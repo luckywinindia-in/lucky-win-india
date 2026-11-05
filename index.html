@@ -71,7 +71,7 @@ function say(el,message,type=""){el.textContent=message;el.className="msg "+type
 function setMode(next){mode=next;$("signupTab").setAttribute("aria-selected",String(next==="signup"));$("loginTab").setAttribute("aria-selected",String(next==="login"));$("signupFields").classList.toggle("hidden",next!=="signup");$("fullName").required=next==="signup";$("phone").required=next==="signup";$("submitBtn").textContent=next==="signup"?"Create account":"Log in";$("password").autocomplete=next==="signup"?"new-password":"current-password";say($("authMsg"),"")}
 $("signupTab").addEventListener("click",()=>setMode("signup"));
 $("loginTab").addEventListener("click",()=>setMode("login"));
-function showAccount(user){currentUser=user;$("authCard").classList.toggle("hidden",!!user);$("accountCard").classList.toggle("hidden",!user);if(!user){profile=null;return}$("welcome").textContent="Welcome"+(user.user_metadata?.full_name?", "+user.user_metadata.full_name:"");$("accountEmail").textContent=user.email||"";loadProfile(user)}
+function showAccount(user){if((user?.id||null)===(currentUser?.id||null))return;currentUser=user;$("authCard").classList.toggle("hidden",!!user);$("accountCard").classList.toggle("hidden",!user);if(!user){profile=null;return}$("welcome").textContent="Welcome"+(user.user_metadata?.full_name?", "+user.user_metadata.full_name:"");$("accountEmail").textContent=user.email||"";loadProfile(user)}
 async function loadProfile(user){say($("profileMsg"),"Loading account details…");if(!sb)return;
 const {data,error}=await sb.from("profiles").select("full_name,referral_code").eq("id",user.id).maybeSingle();
 if(error){$("referralBlock").classList.add("hidden");say($("profileMsg"),"Account is signed in. Profile setup needs the database setup step.","error");return}
@@ -99,7 +99,7 @@ $("logoutBtn").addEventListener("click",async()=>{if(sb)await sb.auth.signOut()}
 $("copyBtn").addEventListener("click",async()=>{try{await navigator.clipboard.writeText($("referralLink").textContent);say($("profileMsg"),"Referral link copied.","success")}catch(e){say($("profileMsg"),"Copy not available on this browser. Select and copy the link manually.","error")}});
 $("shareBtn").addEventListener("click",()=>{const url=$("referralLink").textContent;if(navigator.share){navigator.share({title:"Lucky Win India",text:"My Lucky Win India referral link",url}).catch(()=>{})}else{window.open("https://wa.me/?text="+encodeURIComponent("My Lucky Win India referral link: "+url),"_blank","noopener") }});
 if(!sb){say($("authMsg"),"Account service did not load. Check your internet connection and refresh.","error")}else{
-sb.auth.onAuthStateChange((_event,session)=>showAccount(session?.user||null));
+sb.auth.onAuthStateChange((_event,session)=>{setTimeout(()=>showAccount(session?.user||null),0)});
 sb.auth.getSession().then(({data,error})=>{if(error)say($("authMsg"),"Could not restore session. Please log in.","error");else showAccount(data.session?.user||null)});
 }
 setMode("signup");
