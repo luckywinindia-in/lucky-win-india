@@ -24,7 +24,7 @@ label{display:block;margin:12px 0 6px;color:var(--muted)}input{width:100%;paddin
 <script>
 (()=>{"use strict";
 const SUPABASE_URL="https://othynttlaxymqjudntdq.supabase.co",SUPABASE_KEY="sb_publishable_B9C5HIxMHlZ8ItrV7neBHw_LTF-H_ir";
-const $=id=>document.getElementById(id),sb=window.supabase?.createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{flowType:"implicit",detectSessionInUrl:true}});let records=[];
+const $=id=>document.getElementById(id),sb=window.supabase?.createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{flowType:"pkce",detectSessionInUrl:true}});let records=[];
 function msg(id,text,type=""){const e=$(id);e.textContent=text;e.className="msg "+type}
 function withTimeout(promise,ms=20000){let timer;return Promise.race([promise,new Promise((_,reject)=>{timer=setTimeout(()=>reject(new Error("Request timed out after 20 seconds. Check your connection, then sign in to verify whether the password changed.")),ms)})]).finally(()=>clearTimeout(timer))}
 function screen(s){$("loginCard").classList.toggle("hidden",s!=="login");$("recoveryCard").classList.toggle("hidden",s!=="recovery");$("deniedCard").classList.toggle("hidden",s!=="denied");$("passwordCard").classList.toggle("hidden",s!=="password");$("dashboard").classList.toggle("hidden",s!=="dashboard")}
