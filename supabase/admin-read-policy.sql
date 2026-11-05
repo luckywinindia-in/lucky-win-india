@@ -73,3 +73,17 @@ select u.id,
        coalesce(u.created_at, now())
 from auth.users u
 on conflict (id) do nothing;
+
+
+-- Performance and least-privilege access defaults.
+-- RLS remains the authority for which authenticated rows can be read.
+create index if not exists profiles_created_at_desc_idx
+  on public.profiles (created_at desc);
+create index if not exists profiles_referral_code_idx
+  on public.profiles (referral_code);
+create index if not exists profiles_referred_by_idx
+  on public.profiles (referred_by);
+
+grant usage on schema public to authenticated;
+grant select on public.profiles to authenticated;
+revoke all on function public.lwi_create_profile() from public, anon, authenticated;
