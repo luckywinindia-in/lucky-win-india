@@ -12,7 +12,6 @@ label{display:block;margin:12px 0 6px;color:var(--muted)}input{width:100%;paddin
 <section class="card hidden" id="recoveryCard"><h2>Set a new admin password</h2><form id="recoveryForm"><label for="newPassword">New password (at least 8 characters)</label><input id="newPassword" type="password" autocomplete="new-password" minlength="8" required><label for="confirmPassword">Confirm new password</label><input id="confirmPassword" type="password" autocomplete="new-password" minlength="8" required><button id="savePasswordBtn">Save new password</button><p id="recoveryMsg" class="msg" role="status"></p></form></section>
 <section class="card hidden" id="deniedCard"><h2>Admin access required</h2><p>Your account is signed in, but it does not have the admin role. The project owner must set <code>app_metadata.role = admin</code> in Supabase Auth.</p><button class="alt" id="deniedLogout">Log out</button></section>
 <section class="card hidden" id="passwordCard"><h2>Change admin password</h2><form id="changePasswordForm">
-<label for="currentPassword">Current password</label><input id="currentPassword" type="password" autocomplete="current-password" required>
 <label for="changedPassword">New password (at least 8 characters)</label><input id="changedPassword" type="password" autocomplete="new-password" minlength="8" required>
 <label for="confirmChangedPassword">Confirm new password</label><input id="confirmChangedPassword" type="password" autocomplete="new-password" minlength="8" required>
 <button id="changePasswordBtn">Update password</button><button class="alt" id="cancelPasswordBtn" type="button">Cancel</button><p id="changePasswordMsg" class="msg" role="status" aria-live="polite"></p></form></section>
@@ -26,7 +25,7 @@ label{display:block;margin:12px 0 6px;color:var(--muted)}input{width:100%;paddin
 const SUPABASE_URL="https://othynttlaxymqjudntdq.supabase.co",SUPABASE_KEY="sb_publishable_B9C5HIxMHlZ8ItrV7neBHw_LTF-H_ir";
 const $=id=>document.getElementById(id),sb=window.supabase?.createClient(SUPABASE_URL,SUPABASE_KEY);let records=[];
 function msg(id,text,type=""){const e=$(id);e.textContent=text;e.className="msg "+type}
-function screen(s){$("loginCard").classList.toggle("hidden",s!=="login");$("recoveryCard").classList.toggle("hidden",s!=="recovery");$("deniedCard").classList.toggle("hidden",s!=="denied");$("passwordCard").classList.toggle("hidden",s!=="password");$("dashboard").classList.toggle("hidden",s!=="dashboard"&&s!=="password")}
+function screen(s){$("loginCard").classList.toggle("hidden",s!=="login");$("recoveryCard").classList.toggle("hidden",s!=="recovery");$("deniedCard").classList.toggle("hidden",s!=="denied");$("passwordCard").classList.toggle("hidden",s!=="password");$("dashboard").classList.toggle("hidden",s!=="dashboard")}
 function admin(user){return user?.app_metadata?.role==="admin"}
 async function load(user){if(!admin(user)){screen("denied");return}screen("dashboard");$("signedIn").textContent="Signed in: "+(user.email||"admin");msg("dataMsg","Loading accounts…");
 const {data,error}=await sb.from("profiles").select("id,full_name,phone,referral_code,referred_by,created_at").order("created_at",{ascending:false}).limit(1000);
@@ -40,24 +39,18 @@ $("forgotBtn").addEventListener("click",async()=>{const email=$("email").value.t
 $("recoveryForm").addEventListener("submit",async e=>{e.preventDefault();const p=$("newPassword").value,confirm=$("confirmPassword").value;if(p.length<8){msg("recoveryMsg","Use at least 8 characters.","error");return}if(p!==confirm){msg("recoveryMsg","The passwords do not match.","error");return}$("savePasswordBtn").disabled=true;msg("recoveryMsg","Saving new password…");try{const {error}=await sb.auth.updateUser({password:p});if(error){msg("recoveryMsg",error.message,"error");return}await sb.auth.signOut();$("recoveryForm").reset();screen("login");msg("loginMsg","Password updated. Sign in with your new password.","success")}catch(e){msg("recoveryMsg","Could not update password. Please reopen the reset link and try again.","error")}finally{$("savePasswordBtn").disabled=false}});
 $("changePasswordOpenBtn").onclick=()=>{const current=$("signedIn").textContent;msg("changePasswordMsg","");$("changePasswordForm").reset();screen("password");$("currentPassword").focus()};
 $("cancelPasswordBtn").onclick=()=>screen("dashboard");
-$("changePasswordForm").addEventListener("submit",async e=>{e.preventDefault();const oldPassword=$("currentPassword").value,newPassword=$("changedPassword").value,confirm=$("confirmChangedPassword").value;
+$("changePasswordForm").addEventListener("submit",async e=>{e.preventDefault();const newPassword=$("changedPassword").value,confirm=$("confirmChangedPassword").value;
 if(newPassword.length<8){msg("changePasswordMsg","New password must contain at least 8 characters.","error");return}
 if(newPassword!==confirm){msg("changePasswordMsg","The new passwords do not match.","error");return}
-if(oldPassword===newPassword){msg("changePasswordMsg","Choose a password different from your current password.","error");return}
-$("changePasswordBtn").disabled=true;msg("changePasswordMsg","Verifying current password…");
-try{const {data:sessionData,error:verifyError}=await sb.auth.getSession();const email=sessionData?.session?.user?.email;
-if(verifyError||!email)throw new Error("Your session has expired. Please log in again.");
-const {error:reauthError}=await sb.auth.signInWithPassword({email,password:oldPassword});
-if(reauthError)throw new Error("Current password is incorrect.");
-msg("changePasswordMsg","Updating password…");
-const {error:updateError}=await sb.auth.updateUser({password:newPassword});
-if(updateError)throw updateError;
+$("changePasswordBtn").disabled=true;msg("changePasswordMsg","Updating password…");
+try{const {data,error}=await sb.auth.updateUser({password:newPassword});
+if(error)throw error;
 $("changePasswordForm").reset();msg("changePasswordMsg","Password changed successfully.","success");setTimeout(()=>screen("dashboard"),1200);
-}catch(err){msg("changePasswordMsg",err.message||"Could not change password. Use Forgot password if you no longer know the current password.","error")}
+}catch(err){msg("changePasswordMsg",err.message||"Could not change password. If your session has expired, log in again or use Forgot password.","error")}
 finally{$("changePasswordBtn").disabled=false}
 });
 async function logout(){await sb.auth.signOut();records=[];screen("login")}
 $("logoutBtn").onclick=logout;$("deniedLogout").onclick=logout;$("refreshBtn").onclick=async()=>{const {data}=await sb.auth.getUser();if(data.user)await load(data.user)};$("search").addEventListener("input",render);
-if(!sb){msg("loginMsg","Account service failed to load. Refresh the page.","error")}else{sb.auth.onAuthStateChange((event,s)=>{if(event==="PASSWORD_RECOVERY"){setTimeout(()=>screen("recovery"),0);return}setTimeout(()=>{if(s?.user)load(s.user);else screen("login")},0)})}
+if(!sb){msg("loginMsg","Account service failed to load. Refresh the page.","error")}else{sb.auth.onAuthStateChange((event,s)=>{if(event==="PASSWORD_RECOVERY"){setTimeout(()=>screen("recovery"),0);return}if(event==="USER_UPDATED")return;setTimeout(()=>{if(s?.user)load(s.user);else screen("login")},0)})}
 })();
 </script></body></html>
