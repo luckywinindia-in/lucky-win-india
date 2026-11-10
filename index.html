@@ -139,6 +139,23 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
   </div>
 </section>
 
+<section class="card" id="returnEstimator" aria-labelledby="estimatorTitle">
+  <span class="demoTag">Scenario calculator · Not an investment offer</span>
+  <h2 id="estimatorTitle" style="margin-top:13px">USDT Investment Estimate</h2>
+  <p>Enter an amount, an assumed monthly rate and a duration to calculate a hypothetical example. The rate is entered by you; it is not a rate offered or promised by Lucky Win India.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:16px">
+    <div><label for="estimatePrincipal">Amount (USDT)</label><input id="estimatePrincipal" type="number" min="1" max="1000000000" step="any" value="1000" inputmode="decimal"></div>
+    <div><label for="estimateRate">Assumed monthly rate (%)</label><input id="estimateRate" type="number" min="0" max="100" step="0.1" value="0" inputmode="decimal"></div>
+    <div><label for="estimateMonths">Duration (months)</label><input id="estimateMonths" type="number" min="1" max="120" step="1" value="1" inputmode="numeric"></div>
+  </div>
+  <div class="communityStat" style="margin-top:16px">
+    <small>Hypothetical estimated total · simple interest</small>
+    <b id="estimateTotal" aria-live="polite">1,000.00 USDT</b>
+    <p id="estimateGain" style="margin:5px 0 0;font-size:13px">Illustrative gain: 0.00 USDT</p>
+  </div>
+  <p style="font-size:12px;margin:12px 0 0">Calculation: amount × (1 + assumed monthly rate × months ÷ 100). This is a mathematical illustration only, not a forecast. It excludes fees, taxes, market losses and other risks. Actual returns may be zero or negative. No funds are accepted and no return is payable.</p>
+</section>
+
 <div class="notice"><strong>Important:</strong> No entry fee or payment is being collected. Any prize promotion requires legal review, permissions and published terms. No prize is guaranteed.</div>
 
 <section class="card" id="communityPreview" aria-labelledby="communityTitle">
@@ -167,6 +184,10 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
 <footer>Lucky Win India · Account access only. Paid registration and prize draws are not active.<br><a href="/admin.html" style="display:inline-block;margin-top:12px;color:#f4d982">Admin sign in</a></footer></main>
 <script>
 (()=>{const host=document.getElementById("demoProfiles");if(!host)return;const frag=document.createDocumentFragment();for(let i=1;i<=100;i++){const item=document.createElement("div");item.className="demoPerson"+(i>5?" isHidden":"");const rank=document.createElement("span");rank.className="demoRank";rank.textContent="#"+String(i).padStart(2,"0");const details=document.createElement("div");details.style.minWidth="0";const name=document.createElement("strong");const names=["Aarav Sharma","Vivaan Patel","Aditya Verma","Arjun Singh","Sai Kumar","Reyansh Gupta","Ayaan Khan","Krishna Yadav","Ishaan Joshi","Rohan Das","Ananya Sharma","Diya Patel","Aadhya Verma","Saanvi Singh","Myra Gupta","Anika Kumar","Pari Yadav","Kiara Joshi","Ira Das","Meera Rao"];name.textContent=names[(i-1)%names.length]+" "+String(i).padStart(3,"0");const score=document.createElement("small");score.className="portfolioValue";score.textContent=(1250+(101-i)*825).toLocaleString("en-US")+" USDT · illustrative";details.append(name,score);item.append(rank,details);frag.append(item)}host.append(frag);const more=document.getElementById("showMoreProfiles");let expanded=false;more.addEventListener("click",()=>{expanded=!expanded;host.querySelectorAll(".demoPerson").forEach((el,index)=>{if(index>=5)el.classList.toggle("isHidden",!expanded)});more.textContent=expanded?"See less":"See more members";more.setAttribute("aria-expanded",String(expanded))})})();
+</script>
+
+<script>
+(()=>{const ids=["estimatePrincipal","estimateRate","estimateMonths"];const fmt=n=>n.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});function update(){const p=Number(document.getElementById(ids[0]).value),r=Number(document.getElementById(ids[1]).value),m=Number(document.getElementById(ids[2]).value);const total=document.getElementById("estimateTotal"),gain=document.getElementById("estimateGain");if(!Number.isFinite(p)||!Number.isFinite(r)||!Number.isFinite(m)||p<=0||r<0||r>100||m<1||m>120||!Number.isInteger(m)){total.textContent="Enter valid values";gain.textContent="Amount must be above 0; rate 0–100%; duration 1–120 whole months.";return}const t=p*(1+r*m/100);total.textContent=fmt(t)+" USDT";gain.textContent="Illustrative gain: "+fmt(t-p)+" USDT · not guaranteed"}ids.forEach(id=>document.getElementById(id).addEventListener("input",update));update()})();
 </script>
 
 </body></html>
