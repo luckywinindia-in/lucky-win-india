@@ -2,36 +2,36 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#090909"><meta name="description" content="QURBIT live crypto market dashboard and educational AI signal bot.">
-<title>QURBIT · Live Trading & AI Bot</title>
+<meta name="theme-color" content="#090909"><meta name="description" content="QURBIT live crypto market dashboard, technical analysis, price alerts and paper trading tools."><meta property="og:type" content="website"><meta property="og:title" content="QURBIT Live Trading & AI Market Desk"><meta property="og:description" content="Live crypto charts, technical signals, price alerts and paper trading practice."><meta name="twitter:card" content="summary">
+<title>QURBIT · Live Trading & AI Market Desk</title><script type="module" src="https://widgets.tradingview-widget.com/w/en/tv-advanced-chart.js"></script>
 <style>
 :root{color-scheme:dark;--bg:#090909;--panel:#111c2b;--line:#334b65;--gold:#d4af37;--pale:#f4d982;--muted:#b8c8dc;--teal:#4de2d0;--red:#ff8888;--green:#79d9a0}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#fff;font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}.banner{text-align:center;padding:9px;background:#33290e;color:var(--pale);font-weight:750}.wrap{width:min(100%,900px);margin:auto;padding:0 14px 40px}.top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:15px 0}.top a{color:var(--pale);text-decoration:none;border:1px solid var(--line);padding:8px 11px;border-radius:8px;font-size:13px}.top h1{margin:0;color:var(--pale);font: bold 28px Georgia,serif}.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}h2{margin:0 0 8px;color:var(--pale);font: bold 22px Georgia,serif}p{color:var(--muted);margin:0 0 12px}.controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}label{display:block;color:#d8e9f8;font-size:13px;margin:0 0 5px}select,button{font:inherit}select{width:100%;padding:11px;background:#091525;border:1px solid var(--line);border-radius:8px;color:#fff}.btn{padding:11px 14px;border:0;border-radius:8px;background:var(--teal);color:#06151a;font-weight:800;cursor:pointer}.btn.secondary{background:transparent;color:var(--pale);border:1px solid var(--gold)}.btn:disabled{opacity:.5}.status{font-size:12px;color:var(--muted)}.status.live{color:var(--green)}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:12px}.stat{min-width:0;padding:11px;background:#172437;border:1px solid #405875;border-radius:8px}.stat span{display:block;color:var(--muted);font-size:12px}.stat strong{display:block;color:var(--pale);font-size:clamp(14px,2vw,18px);overflow-wrap:anywhere}.chart{height:500px;overflow:hidden;border-radius:9px;background:#0b1420}.chart iframe{width:100%;height:100%;border:0}.signal{padding:14px;border:1px solid var(--line);border-radius:9px;background:#0b1420}.signal strong{font-size:20px}.bull{color:var(--green)}.bear{color:var(--red)}.neutral{color:var(--pale)}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.metric{padding:10px;background:#172437;border-radius:8px;border:1px solid #334b65}.metric span{display:block;color:var(--muted);font-size:12px}.metric b{color:#fff;overflow-wrap:anywhere}.note{background:#172437;border-left:3px solid #ffc76b;padding:11px;border-radius:6px;color:#ffe0a7;font-size:12px;margin-top:12px}footer{text-align:center;color:var(--muted);font-size:12px;margin:24px 0}.muted{color:var(--muted)}@media(max-width:620px){.controls{grid-template-columns:repeat(2,minmax(0,1fr))}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.chart{height:390px}.top{align-items:flex-start}.top h1{font-size:23px}}@media(max-width:360px){.wrap{padding-left:9px;padding-right:9px}.card{padding:12px}.chart{height:340px}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#fff;font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}.banner{text-align:center;padding:9px;background:#33290e;color:var(--pale);font-weight:750}.wrap{width:min(100%,900px);margin:auto;padding:0 14px 40px}.top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:15px 0}.top a{color:var(--pale);text-decoration:none;border:1px solid var(--line);padding:8px 11px;border-radius:8px;font-size:13px}.top h1{margin:0;color:var(--pale);font: bold 28px Georgia,serif}.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}h2{margin:0 0 8px;color:var(--pale);font: bold 22px Georgia,serif}p{color:var(--muted);margin:0 0 12px}.controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}label{display:block;color:#d8e9f8;font-size:13px;margin:0 0 5px}select,button{font:inherit}select{width:100%;padding:11px;background:#091525;border:1px solid var(--line);border-radius:8px;color:#fff}.btn{padding:11px 14px;border:0;border-radius:8px;background:var(--teal);color:#06151a;font-weight:800;cursor:pointer}.btn.secondary{background:transparent;color:var(--pale);border:1px solid var(--gold)}.btn:disabled{opacity:.5}.status{font-size:12px;color:var(--muted)}.status.live{color:var(--green)}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:12px}.stat{min-width:0;padding:11px;background:#172437;border:1px solid #405875;border-radius:8px}.stat span{display:block;color:var(--muted);font-size:12px}.stat strong{display:block;color:var(--pale);font-size:clamp(14px,2vw,18px);overflow-wrap:anywhere}.chart{height:500px;overflow:hidden;border-radius:9px;background:#0b1420}.chart iframe{width:100%;height:100%;border:0}.signal{padding:14px;border:1px solid var(--line);border-radius:9px;background:#0b1420}.signal strong{font-size:20px}.bull{color:var(--green)}.bear{color:var(--red)}.neutral{color:var(--pale)}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.metric{padding:10px;background:#172437;border-radius:8px;border:1px solid #334b65}.metric span{display:block;color:var(--muted);font-size:12px}.metric b{color:#fff;overflow-wrap:anywhere}.note{background:#172437;border-left:3px solid #ffc76b;padding:11px;border-radius:6px;color:#ffe0a7;font-size:12px;margin-top:12px}footer{text-align:center;color:var(--muted);font-size:12px;margin:24px 0}.muted{color:var(--muted)}.extra-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.extra-field label{display:block;font-size:12px;color:#d8e9f8;margin-bottom:5px}.extra-field input,.extra-field select{width:100%;padding:10px;background:#091525;border:1px solid var(--line);border-radius:8px;color:#fff}.bookrow{display:flex;justify-content:space-between;padding:5px 2px;border-bottom:1px solid #263d57;font:12px ui-monospace,monospace}.ask{color:#ff8888}.bid{color:#79d9a0}.extra-table{overflow:auto}.extra-table table{width:100%;border-collapse:collapse;font-size:12px}.extra-table th,.extra-table td{text-align:left;padding:8px;border-bottom:1px solid #304763;white-space:nowrap}.share-btn{background:transparent;color:var(--pale);border:1px solid var(--gold);border-radius:8px;padding:8px 10px;cursor:pointer}@media(max-width:620px){.controls{grid-template-columns:repeat(2,minmax(0,1fr))}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.chart{height:390px}.top{align-items:flex-start}.top h1{font-size:23px}}@media(max-width:360px){.wrap{padding-left:9px;padding-right:9px}.card{padding:12px}.chart{height:340px}}
 </style>
 </head>
 <body>
 <div class="banner">QURBIT · Beyond Finance. Into Intelligence.</div>
 <main class="wrap">
-<div class="top"><a href="/">← Main page</a><h1>Live Trading &amp; QURBIT AI</h1><a href="/invest.html">Invest Plan</a></div>
+<div class="top"><a href="/">← Main page</a><h1>Live Trading &amp; QURBIT AI</h1><div style="display:flex;gap:6px;flex-wrap:wrap"><a href="/invest.html">Invest Plan</a><button class="share-btn" id="qShare" type="button">Share ↗</button></div></div>
 <section class="card">
 <h2>Live Market Watch</h2>
 <p>Choose a market and timeframe. The embedded chart is provided by TradingView; live candle data for the signal engine comes from Binance public market-data streams.</p>
 <div class="controls">
 <div><label for="pair">Crypto pair</label><select id="pair"><option value="BTCUSDT">BTC / USDT</option><option value="ETHUSDT">ETH / USDT</option><option value="BNBUSDT">BNB / USDT</option><option value="SOLUSDT">SOL / USDT</option><option value="XRPUSDT">XRP / USDT</option></select></div>
-<div><label for="interval">Timeframe</label><select id="interval"><option value="1m">1 minute</option><option value="5m" selected>5 minutes</option><option value="15m">15 minutes</option><option value="1h">1 hour</option><option value="4h">4 hours</option></select></div>
+<div><label for="interval">Timeframe</label><select id="interval"><option value="1m">1 minute</option><option value="5m" selected>5 minutes</option><option value="15m">15 minutes</option><option value="1h">1 hour</option><option value="4h">4 hours</option><option value="1d">1 day</option></select></div>
 <div style="display:flex;align-items:end"><button class="btn" id="startBtn" type="button">Start Live Bot</button></div>
 </div>
 <div class="stats">
 <div class="stat"><span>Live price (USDT)</span><strong id="price">—</strong></div>
 <div class="stat"><span>24h change</span><strong id="change">—</strong></div>
 <div class="stat"><span>24h high</span><strong id="high">—</strong></div>
-<div class="stat"><span>24h low</span><strong id="low">—</strong></div>
+<div class="stat"><span>24h low</span><strong id="low">—</strong></div><div class="stat"><span>24h base volume</span><strong id="volume">—</strong></div>
 </div>
 <p class="status" id="connection" aria-live="polite" style="margin-top:10px">Bot stopped · Tap Start Live Bot to connect to public market data.</p>
 </section>
 <section class="card">
 <h2>Live Trading Chart</h2>
-<div class="chart"><iframe id="tvchart" title="TradingView live crypto chart" loading="lazy" allowtransparency="true" src="https://s.tradingview.com/widgetembed/?frameElementId=qurbit-tv&symbol=BINANCE%3ABTCUSDT&interval=5&hidesidetoolbar=1&symboledit=1&saveimage=1&toolbarbg=%23090f18&theme=dark&style=1&timezone=Etc%2FUTC&withdateranges=1&hideideas=1&locale=en"></iframe></div>
+<div class="chart"><tv-advanced-chart id="tvchart" symbol="BINANCE:BTCUSDT" interval="5" theme="dark" autosize></tv-advanced-chart></div>
 <p class="status" style="margin-top:8px">Chart data and availability are controlled by TradingView and its supported exchanges.</p>
 </section>
 <section class="card">
@@ -62,7 +62,28 @@
 <button class="btn secondary" id="paperBtn" type="button" style="margin-top:12px" disabled>Record Paper Setup</button>
 <div class="status" id="paperMsg" aria-live="polite" style="margin-top:8px">Start the live bot before recording a practice setup.</div>
 </section>
-<footer>QURBIT · Live public market data · Educational tools only.</footer>
+
+<section class="card" id="q-depth">
+<h2>Live Market Depth</h2><p>Public order-book snapshot · Top 8 levels · Refreshes while live bot is running.</p>
+<div class="extra-grid"><div><div class="status">ASK · SELL SIDE</div><div id="q-asks"></div></div><div><div class="status">BID · BUY SIDE</div><div id="q-bids"></div></div></div><p class="status" id="q-depth-status">Order book will load when live bot starts.</p>
+</section>
+<section class="card" id="q-alerts">
+<h2>Price Alerts</h2><p>Set a price crossing alert. Keep this page open; notifications depend on browser permission and device settings.</p>
+<div class="extra-grid"><div class="extra-field"><label for="q-alert-price">Alert price (USDT)</label><input id="q-alert-price" type="number" min="0" step="any" placeholder="Enter price"></div><div class="extra-field"><label for="q-alert-dir">Condition</label><select id="q-alert-dir"><option value="above">Rises above</option><option value="below">Falls below</option></select></div></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"><button class="btn" id="q-add-alert" type="button">Add Alert</button><button class="btn secondary" id="q-enable-notify" type="button">Enable Notifications</button></div><div id="q-alert-list" class="status" aria-live="polite" style="margin-top:10px">No active alerts.</div>
+</section>
+<section class="card" id="q-risk-tool">
+<h2>Risk &amp; Position Size Calculator</h2><p>Practice sizing only. Maximum allowed risk is capped at 5%.</p>
+<div class="extra-grid"><div class="extra-field"><label for="q-balance">Practice balance (USDT)</label><input id="q-balance" type="number" min="0" value="1000"></div><div class="extra-field"><label for="q-risk-pct">Risk per trade (%)</label><input id="q-risk-pct" type="number" min="0.1" max="5" step="0.1" value="1"></div><div class="extra-field"><label for="q-entry-price">Entry price</label><input id="q-entry-price" type="number" min="0" step="any" placeholder="Entry"></div><div class="extra-field"><label for="q-stop-price">Stop-loss price</label><input id="q-stop-price" type="number" min="0" step="any" placeholder="Stop"></div></div>
+<button class="btn" id="q-calc-risk" type="button" style="margin-top:10px">Calculate Position Size</button><div class="extra-grid" id="q-risk-result" style="margin-top:10px"><div class="metric"><span>Maximum planned loss</span><b>—</b></div><div class="metric"><span>Position size</span><b>—</b></div><div class="metric"><span>Notional value</span><b>—</b></div></div>
+</section>
+<section class="card" id="q-paper-journal">
+<h2>Saved Paper Trading Journal</h2><p>Practice trades are stored in this browser on this device only. No real orders are placed.</p>
+<div class="extra-grid"><div class="extra-field"><label for="q-paper-side">Direction</label><select id="q-paper-side"><option value="LONG">Long</option><option value="SHORT">Short</option></select></div><div class="extra-field"><label for="q-paper-entry">Entry price</label><input id="q-paper-entry" type="number" min="0" step="any" placeholder="Entry"></div><div class="extra-field"><label for="q-paper-qty">Quantity</label><input id="q-paper-qty" type="number" min="0" step="any" placeholder="Units"></div></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"><button class="btn" id="q-save-paper" type="button">Save Practice Trade</button><button class="btn secondary" id="q-clear-paper" type="button">Clear Journal</button></div>
+<div class="extra-table" style="margin-top:12px"><table><thead><tr><th>Time</th><th>Pair</th><th>Side</th><th>Entry</th><th>Qty</th><th>Action</th></tr></thead><tbody id="q-paper-rows"><tr><td colspan="6">No practice trades recorded.</td></tr></tbody></table></div>
+</section>
+\n<footer>QURBIT · Live public market data · Educational tools only.</footer>
 </main>
 <script>
 (()=>{
@@ -70,9 +91,9 @@ const $=id=>document.getElementById(id);
 const pair=$('pair'),interval=$('interval');
 let socket=null,candles=[],running=false,lastSignal='WAIT',lastPrice=0,reconnectTimer=null;
 const fmt=n=>Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:6});
-const intervalMap={'1m':'1','5m':'5','15m':'15','1h':'60','4h':'240'};
+const intervalMap={'1m':'1','5m':'5','15m':'15','1h':'60','4h':'240','1d':'1D'};
 function setStatus(t,live=false){$('connection').textContent=t;$('connection').className='status'+(live?' live':'')}
-function chart(){const symbol='BINANCE:'+pair.value;const url='https://s.tradingview.com/widgetembed/?frameElementId=qurbit-tv&symbol='+encodeURIComponent(symbol)+'&interval='+intervalMap[interval.value]+'&hidesidetoolbar=1&symboledit=1&saveimage=1&toolbarbg=%23090f18&theme=dark&style=1&timezone=Etc%2FUTC&withdateranges=1&hideideas=1&locale=en';$('tvchart').src=url}
+function chart(){const el=$('tvchart');el.setAttribute('symbol','BINANCE:'+pair.value);el.setAttribute('interval',intervalMap[interval.value])}
 function ema(values,period){if(values.length<period)return null;const k=2/(period+1);let v=values.slice(0,period).reduce((a,b)=>a+b,0)/period;for(let i=period;i<values.length;i++)v=values[i]*k+v*(1-k);return v}
 function rsi(values,period=14){if(values.length<=period)return null;let gain=0,loss=0;for(let i=values.length-period;i<values.length;i++){const d=values[i]-values[i-1];if(d>0)gain+=d;else loss-=d}if(loss===0)return 100;const rs=(gain/period)/(loss/period);return 100-100/(1+rs)}
 function atr(data,period=14){if(data.length<=period)return null;let sum=0;for(let i=data.length-period;i<data.length;i++){const p=data[i-1],c=data[i];sum+=Math.max(c.h-c.l,Math.abs(c.h-p.c),Math.abs(c.l-p.c))}return sum/period}
@@ -101,14 +122,14 @@ const res=await fetch(url);if(!res.ok)throw new Error('Market history unavailabl
 const data=await res.json();candles=data.map(k=>({t:k[0],o:+k[1],h:+k[2],l:+k[3],c:+k[4],v:+k[5]}));renderBot();
 }
 async function loadTicker(){
-try{const r=await fetch('https://data-api.binance.vision/api/v3/ticker/24hr?symbol='+pair.value);if(!r.ok)return;const d=await r.json();$('price').textContent=fmt(+d.lastPrice);$('change').textContent=(+d.priceChangePercent).toFixed(2)+'%';$('change').style.color=+d.priceChangePercent>=0?'var(--green)':'var(--red)';$('high').textContent=fmt(+d.highPrice);$('low').textContent=fmt(+d.lowPrice);lastPrice=+d.lastPrice}catch(e){$('price').textContent='Feed unavailable'}}
+try{const r=await fetch('https://data-api.binance.vision/api/v3/ticker/24hr?symbol='+pair.value);if(!r.ok)return;const d=await r.json();$('price').textContent=fmt(+d.lastPrice);$('change').textContent=(+d.priceChangePercent).toFixed(2)+'%';$('change').style.color=+d.priceChangePercent>=0?'var(--green)':'var(--red)';$('high').textContent=fmt(+d.highPrice);$('low').textContent=fmt(+d.lowPrice);$('volume').textContent=(+d.volume).toLocaleString('en-US',{maximumFractionDigits:2});lastPrice=+d.lastPrice}catch(e){$('price').textContent='Feed unavailable'}}
 function stop(){running=false;if(socket){socket.onclose=null;socket.close();socket=null}if(reconnectTimer)clearTimeout(reconnectTimer);$('startBtn').textContent='Start Live Bot';setStatus('Bot stopped. No orders are active.')}
 function connect(){
 if(!running)return;
 const stream=pair.value.toLowerCase()+'@kline_'+interval.value;
 socket=new WebSocket('wss://data-stream.binance.vision:443/ws/'+stream);
 socket.onopen=()=>{setStatus('LIVE · Connected to public market-data stream · '+pair.value+' · '+interval.value,true);$('startBtn').textContent='Stop Live Bot'};
-socket.onmessage=e=>{try{const d=JSON.parse(e.data);if(d.e!=='kline')return;const k=d.k,c={t:k.t,o:+k.o,h:+k.h,l:+k.l,c:+k.c,v:+k.v};const i=candles.findIndex(x=>x.t===c.t);if(i>=0)candles[i]=c;else{candles.push(c);if(candles.length>120)candles.shift()}$('price').textContent=fmt(c.c);lastPrice=c.c;renderBot()}catch(err){}};
+socket.onmessage=e=>{try{const d=JSON.parse(e.data);if(d.e!=='kline')return;const k=d.k,c={t:k.t,o:+k.o,h:+k.h,l:+k.l,c:+k.c,v:+k.v};const i=candles.findIndex(x=>x.t===c.t);if(i>=0)candles[i]=c;else{candles.push(c);if(candles.length>120)candles.shift()}$('price').textContent=fmt(c.c);lastPrice=c.c;renderBot();if(window.qurbitCheckAlerts)window.qurbitCheckAlerts()}catch(err){}};
 socket.onerror=()=>setStatus('Market stream error. Check network or try again.',false);
 socket.onclose=()=>{if(running){setStatus('Stream disconnected · reconnecting…');reconnectTimer=setTimeout(connect,2500)}};
 }
@@ -123,6 +144,30 @@ interval.addEventListener('change',()=>{chart();if(running)start();else{candles=
 $('paperBtn').addEventListener('click',()=>{$('paperMsg').textContent='Paper setup recorded locally for this page session: '+lastSignal+' on '+pair.value+' at '+fmt(lastPrice)+' USDT. No real trade was placed.'});
 chart();
 window.addEventListener('beforeunload',()=>{running=false;if(socket)socket.close()});
+})();
+</script>
+
+<script>
+(()=>{
+const $=id=>document.getElementById(id),base='https://data-api.binance.vision';let alerts=[],journal=[];
+const fmt=n=>Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:6});
+const pair=()=>document.getElementById('pair').value;
+async function get(url){const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw Error('HTTP '+r.status);return r.json()}
+async function depth(){try{const d=await get(base+'/api/v3/depth?symbol='+pair()+'&limit=8');$('q-asks').innerHTML=d.asks.slice(0,7).reverse().map(x=>'<div class="bookrow ask"><span>'+fmt(+x[0])+'</span><span>'+Number(x[1]).toFixed(4)+'</span></div>').join('');$('q-bids').innerHTML=d.bids.slice(0,7).map(x=>'<div class="bookrow bid"><span>'+fmt(+x[0])+'</span><span>'+Number(x[1]).toFixed(4)+'</span></div>').join('');$('q-depth-status').textContent='Order book snapshot · top 7 asks and bids'}catch(e){$('q-depth-status').textContent='Order book temporarily unavailable.'}}
+function renderAlerts(){const el=$('q-alert-list');if(!alerts.length){el.textContent='No active alerts.';return}el.innerHTML=alerts.map((a,i)=>'<div style="display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px solid #304763"><span>'+a.pair+' · '+a.dir+' '+fmt(a.price)+' USDT '+(a.hit?'· Triggered':'')+'</span><button class="btn secondary" data-alert-remove="'+i+'" style="padding:4px 8px">Remove</button></div>').join('');el.querySelectorAll('[data-alert-remove]').forEach(b=>b.onclick=()=>{alerts.splice(+b.dataset.alertRemove,1);saveAlerts()})}
+function saveAlerts(){localStorage.setItem('qurbit_alerts_v1',JSON.stringify(alerts));renderAlerts()}
+try{alerts=JSON.parse(localStorage.getItem('qurbit_alerts_v1')||'[]')}catch(e){}renderAlerts();
+$('q-add-alert').onclick=()=>{const price=+$('q-alert-price').value;if(!(price>0)){alert('Enter a valid price.');return}alerts.push({pair:pair(),price,dir:$('q-alert-dir').value,hit:false});$('q-alert-price').value='';saveAlerts()};
+$('q-enable-notify').onclick=async()=>{if(!('Notification'in window)){alert('Notifications are not supported in this browser.');return}const p=await Notification.requestPermission();$('q-enable-notify').textContent=p==='granted'?'Notifications Enabled':'Permission Not Granted'};
+window.qurbitCheckAlerts=()=>{const px=+$('price').textContent.replace(/,/g,'');if(!(px>0))return;let changed=false;for(const a of alerts){if(a.pair!==pair()||a.hit)continue;const hit=a.dir==='above'?px>=a.price:px<=a.price;if(hit){a.hit=true;changed=true;if('Notification'in window&&Notification.permission==='granted')new Notification('QURBIT Price Alert',{body:a.pair+' crossed '+fmt(a.price)+' USDT'});else alert('QURBIT alert: '+a.pair+' crossed '+fmt(a.price)+' USDT')}}if(changed)saveAlerts()};
+$('q-calc-risk').onclick=()=>{const bal=+$('q-balance').value,r=+$('q-risk-pct').value,e=+$('q-entry-price').value,st=+$('q-stop-price').value;if(!(bal>0&&r>0&&r<=5&&e>0&&st>0&&e!==st)){alert('Enter valid values. Risk must be above 0% and no more than 5%.');return}const loss=bal*r/100,qty=loss/Math.abs(e-st),notional=qty*e;$('q-risk-result').innerHTML=[['Maximum planned loss',fmt(loss)+' USDT'],['Position size',qty.toFixed(6)+' units'],['Notional value',fmt(notional)+' USDT']].map(x=>'<div class="metric"><span>'+x[0]+'</span><b>'+x[1]+'</b></div>').join('')};
+function renderJournal(){const body=$('q-paper-rows');if(!journal.length){body.innerHTML='<tr><td colspan="6">No practice trades recorded.</td></tr>';return}body.innerHTML=journal.map((x,i)=>'<tr><td>'+new Date(x.time).toLocaleString()+'</td><td>'+x.pair+'</td><td>'+x.side+'</td><td>'+fmt(x.entry)+'</td><td>'+x.qty+'</td><td><button class="btn secondary" data-journal-remove="'+i+'" style="padding:4px 8px">Remove</button></td></tr>').join('');body.querySelectorAll('[data-journal-remove]').forEach(b=>b.onclick=()=>{journal.splice(+b.dataset.journalRemove,1);saveJournal()})}
+function saveJournal(){localStorage.setItem('qurbit_paper_v1',JSON.stringify(journal));renderJournal()}
+try{journal=JSON.parse(localStorage.getItem('qurbit_paper_v1')||'[]')}catch(e){}renderJournal();
+$('q-save-paper').onclick=()=>{const entry=+$('q-paper-entry').value,qty=+$('q-paper-qty').value;if(!(entry>0&&qty>0)){alert('Enter valid entry price and quantity.');return}journal.unshift({time:Date.now(),pair:pair(),side:$('q-paper-side').value,entry,qty});saveJournal();$('q-paper-entry').value='';$('q-paper-qty').value=''};
+$('q-clear-paper').onclick=()=>{if(confirm('Clear all saved paper trades on this device?')){journal=[];saveJournal()}};
+$('qShare').onclick=async()=>{const data={title:'QURBIT Live Trading & AI Market Desk',text:'Explore QURBIT live crypto charts, technical signals, price alerts and paper trading tools.',url:location.href};try{if(navigator.share)await navigator.share(data);else{await navigator.clipboard.writeText(location.href);$('qShare').textContent='Link Copied ✓'}}catch(e){if(e.name!=='AbortError')alert('Share this link: '+location.href)}};
+$('startBtn').addEventListener('click',()=>setTimeout(depth,1200));$('pair').addEventListener('change',()=>setTimeout(depth,1400));$('interval').addEventListener('change',()=>setTimeout(depth,1400));setInterval(()=>{if($('connection').classList.contains('live'))depth()},20000);
 })();
 </script>
 </body></html>
