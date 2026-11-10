@@ -38,10 +38,6 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
 <main class="wrap"><header><h1>QURBIT</h1><p>Beyond Finance. Into Intelligence. Sign in to manage your account, referrals and QURBIT tools.</p></header>
 <div class="notice"><strong>Important:</strong> No entry fee or payment is being collected. Any prize promotion requires legal review, permissions and published terms. No prize is guaranteed.</div>
 <nav class="q-nav" aria-label="QURBIT tools"><a href="#q-ai">QURBIT AI</a><a href="#q-risk">Risk Calculator</a><a href="#q-paper">Paper Trading</a><a href="/admin.html">Admin</a></nav>
-<section class="card" id="authCard"><div class="tabs" role="tablist" aria-label="Account access"><button class="tab" id="signupTab" type="button" role="tab" aria-selected="true">Create account</button><button class="tab" id="loginTab" type="button" role="tab" aria-selected="false">Log in</button></div>
-<form id="authForm"><div id="signupFields"><label for="fullName">Full name</label><input id="fullName" autocomplete="name" maxlength="80" required><label for="phone">Mobile number</label><input id="phone" inputmode="numeric" autocomplete="tel" maxlength="10" pattern="[0-9]{10}" placeholder="10-digit mobile number" required></div>
-<label for="email">Email address</label><input id="email" type="email" autocomplete="email" required><label for="password">Password</label><input id="password" type="password" autocomplete="new-password" minlength="8" required><button class="primary" id="submitBtn">Create account</button><p class="msg" id="authMsg" role="status" aria-live="polite"></p></form></section>
-<section class="card hidden" id="accountCard"><div class="top"><h2 id="welcome">Your account</h2><button class="textButton" id="logoutBtn" type="button">Log out</button></div><p id="accountEmail"></p><p class="msg" id="profileMsg" role="status"></p>
 <section id="q-plan" class="q-card" style="margin:18px 0;padding:18px;background:#101d30;border:1px solid #36516d;border-radius:12px">
 <h2 style="font-family:Georgia,serif;color:#f4d982;font-size:25px;margin:0 0 5px">QURBIT Wealth Projection Plan</h2>
 <p style="font-size:13px;color:#b8c8dc;margin:0 0 16px">Beyond Finance. Into Intelligence. · Daily Projection · 90-Day Chart · 5-Level Share</p>
@@ -74,6 +70,45 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
 </section>
 <p class="q-note" style="margin-top:14px">Simulation only: 8.333333333% is a user-provided hypothetical daily assumption, not an actual or guaranteed return. This chart does not represent a real investment offer. No deposits, pooled funds, commissions, transfers, or withdrawals are enabled.</p>
 </section>
+
+<section class="card q-tools" id="q-ai">
+<h2>QURBIT AI · Market Intelligence</h2>
+<p>Educational indicator explainer. Enter values from a market chart to understand common indicators. No live market feed or trade signal is provided.</p>
+<div class="q-grid">
+<div><label for="q-pair">Market / pair</label><input id="q-pair" value="BTC/USDT"></div>
+<div><label for="q-price">Current price (USDT)</label><input id="q-price" type="number" min="0" step="any" value="65000"></div>
+<div><label for="q-rsi">RSI (0–100)</label><input id="q-rsi" type="number" min="0" max="100" value="50"></div>
+<div><label for="q-ema1">Short EMA</label><input id="q-ema1" type="number" min="0" step="any" value="65100"></div>
+<div><label for="q-ema2">Long EMA</label><input id="q-ema2" type="number" min="0" step="any" value="64900"></div>
+</div>
+<button type="button" onclick="qAnalyse()" style="margin-top:14px">Explain indicators</button>
+<div class="q-out" id="q-analysis" aria-live="polite">Enter chart values and select Explain indicators.</div>
+<p class="q-note">Educational information only. Not financial advice or a buy/sell recommendation.</p>
+</section>
+<section class="card q-tools" id="q-risk">
+<h2>Risk Calculator</h2><p>Estimate a practice trade's risk and position size before fees and slippage.</p>
+<div class="q-grid">
+<div><label for="q-balance">Account balance (USDT)</label><input id="q-balance" type="number" min="0" step="any" value="1000"></div>
+<div><label for="q-riskpct">Risk per trade (%) · maximum 5%</label><input id="q-riskpct" type="number" min="0" max="5" step="0.1" value="1"></div>
+<div><label for="q-entry">Entry price</label><input id="q-entry" type="number" min="0" step="any" value="100"></div>
+<div><label for="q-stop">Stop-loss price</label><input id="q-stop" type="number" min="0" step="any" value="98"></div>
+</div><button type="button" onclick="qCalcRisk()" style="margin-top:14px">Calculate risk</button>
+<div class="q-out" id="q-riskout" aria-live="polite">Enter your values and calculate.</div>
+</section>
+<section class="card q-tools" id="q-paper">
+<h2>Paper Trading Journal</h2><p>Practice-only entry calculator. No exchange connection and no real order is placed. This browser session does not save a permanent trading history.</p>
+<div class="q-grid">
+<div><label for="q-paperpair">Practice market</label><input id="q-paperpair" value="BTC/USDT"></div>
+<div><label for="q-direction">Practice direction</label><select id="q-direction"><option>Long</option><option>Short</option></select></div>
+<div><label for="q-paperentry">Practice entry price (USDT)</label><input id="q-paperentry" type="number" min="0" step="any" placeholder="Enter price"></div>
+</div><button type="button" onclick="qSavePaper()" style="margin-top:14px">Record practice entry</button>
+<div class="q-out" id="q-paperout" aria-live="polite">No practice entry recorded yet.</div>
+</section>
+
+<section class="card" id="authCard"><div class="tabs" role="tablist" aria-label="Account access"><button class="tab" id="signupTab" type="button" role="tab" aria-selected="true">Create account</button><button class="tab" id="loginTab" type="button" role="tab" aria-selected="false">Log in</button></div>
+<form id="authForm"><div id="signupFields"><label for="fullName">Full name</label><input id="fullName" autocomplete="name" maxlength="80" required><label for="phone">Mobile number</label><input id="phone" inputmode="numeric" autocomplete="tel" maxlength="10" pattern="[0-9]{10}" placeholder="10-digit mobile number" required></div>
+<label for="email">Email address</label><input id="email" type="email" autocomplete="email" required><label for="password">Password</label><input id="password" type="password" autocomplete="new-password" minlength="8" required><button class="primary" id="submitBtn">Create account</button><p class="msg" id="authMsg" role="status" aria-live="polite"></p></form></section>
+<section class="card hidden" id="accountCard"><div class="top"><h2 id="welcome">Your account</h2><button class="textButton" id="logoutBtn" type="button">Log out</button></div><p id="accountEmail"></p><p class="msg" id="profileMsg" role="status"></p>
 <div id="referralBlock" class="hidden"><label>Your referral link</label><p class="small" id="referralLink"></p><button class="secondary" id="copyBtn" type="button">Copy referral link</button><button class="secondary" id="shareBtn" type="button">Share link</button></div></section>
 <footer>QURBIT · Beyond Finance. Into Intelligence. · Account access only.<br><a href="/admin.html" style="display:inline-block;margin-top:12px;color:#f4d982">Admin sign in</a></footer></main>
 <script>
