@@ -8,6 +8,43 @@
 <style>
 :root{color-scheme:dark;--bg:#090909;--panel:#151515;--line:#40351c;--gold:#d4af37;--pale:#f4d982;--muted:#c1bba9;--red:#ff8585;--green:#79d9a0}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:#fff;font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}.wrap{max-width:680px;margin:auto;padding:0 18px 48px}.banner{text-align:center;padding:9px;background:#33290e;color:var(--pale);font-weight:650}h1,h2{font-family:Georgia,serif;color:var(--pale);line-height:1.15}h1{font-size:clamp(38px,8vw,58px);margin:34px 0 12px}h2{font-size:27px;margin:0 0 10px}p{color:var(--muted);margin:0 0 14px}.card{margin-top:22px;padding:22px;background:var(--panel);border:1px solid var(--line);border-radius:12px}.notice{padding:12px 14px;background:#17140d;border-left:3px solid var(--gold);margin:20px 0;color:var(--muted)}.tabs{display:flex;gap:8px;margin-bottom:16px}.tab{flex:1;padding:12px;border:1px solid var(--line);border-radius:8px;background:transparent;color:var(--muted);font:inherit;font-weight:650}.tab[aria-selected=true]{background:var(--gold);color:#111;border-color:var(--gold)}label{display:block;margin:12px 0 6px;font-size:14px}input{width:100%;padding:13px;border:1px solid var(--line);border-radius:8px;background:#090909;color:white;font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:2px solid var(--pale);outline-offset:2px}.primary,.secondary{width:100%;padding:13px;margin-top:15px;border-radius:8px;font:inherit;font-weight:700}.primary{border:0;background:var(--gold);color:#111}.secondary{border:1px solid var(--gold);background:transparent;color:var(--gold)}button:disabled{opacity:.55;cursor:wait}.msg{min-height:22px;margin:12px 0 0;font-size:14px}.error{color:var(--red)}.success{color:var(--green)}.hidden{display:none!important}.top{display:flex;justify-content:space-between;gap:12px;align-items:center}.textButton{background:none;border:0;color:var(--pale);text-decoration:underline;font:inherit}.small{font-size:13px;overflow-wrap:anywhere}footer{text-align:center;color:var(--muted);font-size:12px;margin-top:30px}@media(max-width:480px){.card{padding:17px}.top{align-items:flex-start;flex-direction:column}}
+
+/* Premium lightweight visual layer */
+:root{--bg:#080a10;--panel:rgba(18,22,32,.88);--line:rgba(226,190,92,.24);--gold:#e6bd58;--pale:#ffe6a1;--muted:#b8bfce;--green:#79d9a0}
+html{min-height:100%;background:#080a10;scroll-behavior:smooth}
+body{min-height:100vh;background:radial-gradient(ellipse at 50% -12%,rgba(173,126,34,.19),transparent 48%),radial-gradient(ellipse at 100% 55%,rgba(40,74,120,.12),transparent 42%),#080a10;letter-spacing:.01em}
+.wrap{max-width:760px;padding:0 22px 56px}
+.banner{padding:10px 16px;background:linear-gradient(90deg,#211a0c,#34280f 48%,#211a0c);border-bottom:1px solid rgba(230,189,88,.2);font-size:13px;letter-spacing:.035em}
+header{padding:26px 0 6px}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(42px,9vw,66px);letter-spacing:-.045em;line-height:1.04;margin:30px 0 14px;background:linear-gradient(110deg,#fff2c7 5%,#e6bd58 48%,#fff0bd 92%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 12px 42px rgba(230,189,88,.08)}
+header>p{font-size:16px;max-width:520px;line-height:1.7;color:#c3c9d5}
+.card{margin-top:24px;padding:clamp(20px,5vw,30px);background:linear-gradient(145deg,rgba(24,29,41,.96),rgba(13,16,24,.96));border:1px solid rgba(230,189,88,.22);border-radius:20px;box-shadow:0 18px 60px rgba(0,0,0,.3),inset 0 1px rgba(255,255,255,.035);backdrop-filter:blur(12px)}
+.notice{padding:16px 18px;background:linear-gradient(110deg,rgba(61,47,18,.48),rgba(30,28,24,.68));border:1px solid rgba(230,189,88,.16);border-left:3px solid var(--gold);border-radius:12px;color:#c8c4b8;line-height:1.65}
+.tabs{gap:10px;margin-bottom:22px}
+.tab{padding:13px 12px;border-radius:11px;border-color:rgba(230,189,88,.2);background:rgba(255,255,255,.025);transition:background .18s,border-color .18s,color .18s}
+.tab[aria-selected=true]{background:linear-gradient(135deg,#f4d47e,#c99b38);color:#17130a;border-color:#f4d47e;box-shadow:0 7px 22px rgba(201,155,56,.16)}
+label{margin:15px 0 7px;color:#e6e0d1;font-weight:600;font-size:13px;letter-spacing:.025em}
+input{padding:14px 15px;border-radius:11px;border:1px solid rgba(191,173,126,.22);background:rgba(5,8,14,.72);transition:border-color .18s,box-shadow .18s}
+input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(230,189,88,.11);outline:0}
+.primary,.secondary{padding:14px 16px;margin-top:18px;border-radius:11px;transition:transform .16s,filter .16s,box-shadow .16s}
+.primary{background:linear-gradient(135deg,#f4d47e,#c99b38);box-shadow:0 9px 24px rgba(201,155,56,.16);letter-spacing:.015em}
+.primary:hover,.secondary:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.secondary{border-color:rgba(230,189,88,.55);background:rgba(230,189,88,.055)}
+h2{font-size:28px;letter-spacing:-.025em}
+.top{align-items:center}
+#accountEmail{font-size:13px;color:#929bad;overflow-wrap:anywhere}
+#referralLink{padding:12px;border:1px solid rgba(230,189,88,.18);border-radius:10px;background:rgba(0,0,0,.22);color:#f0d58f}
+#accountCard>.notice{margin-top:22px!important}
+#accountCard .notice strong{color:#f2d78e}
+#accountCard .notice p:nth-of-type(1){font-variant-numeric:tabular-nums;letter-spacing:-.035em}
+footer{padding-top:10px;color:#858d9c;line-height:1.8}
+a{transition:color .18s}
+a:hover{color:#fff2c7!important}
+button:focus-visible,input:focus-visible{outline:2px solid #ffe6a1;outline-offset:3px}
+@media(min-width:700px){.wrap{padding-top:8px}header{padding-top:34px}.card{margin-top:28px}}
+@media(max-width:480px){.wrap{padding-left:16px;padding-right:16px}.card{border-radius:16px}.banner{font-size:12px}.top{align-items:flex-start;flex-direction:row}.top h2{font-size:25px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+
 </style>
 <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.119.0/dist/umd/supabase.js"></script>
 <script defer>
