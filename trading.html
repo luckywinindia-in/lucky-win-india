@@ -110,7 +110,27 @@
 <div class="extra-table" style="margin-top:12px"><table><thead><tr><th>Time</th><th>Pair</th><th>Side</th><th>Entry</th><th>Qty</th><th>Action</th></tr></thead><tbody id="q-paper-rows"><tr><td colspan="6">No practice trades recorded.</td></tr></tbody></table></div>
 </section>
 \n<footer>QURBIT · Live public market data · Educational tools only.</footer>
-</main>
+
+<section class="card" id="qurbit-withdrawal-demo" style="border-color:var(--gold);background:#17140d">
+<h2>90-Day Lock &amp; Withdrawal Profit Preview</h2>
+<p>Example: 100 USDT principal · hypothetical daily rate 8.333333333% · simple arithmetic, no compounding.</p>
+<div class="stats" id="qwd-stats" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px"></div>
+<p class="note">Illustration only—not a real investment, payable return, promise, or guarantee. The 90-day timer is a local demo only. No USDT is received, locked, held, or paid out.</p>
+<button type="button" id="qwd-start" class="primary" style="width:100%;padding:12px;border:0;border-radius:8px;background:var(--gold);color:#111;font-weight:750">Start 90-Day Demo Timer</button>
+<button type="button" id="qwd-preview" class="secondary" style="width:100%;padding:12px;border:1px solid var(--gold);border-radius:8px;background:transparent;color:var(--gold);font-weight:750">Preview Withdrawal</button>
+<p id="qwd-status" class="msg" aria-live="polite">Demo not started. Preview shows hypothetical values only.</p>
+</section>
+<script>
+(()=>{const rate=0.08333333333,principal=100,days=90,key='qurbit_demo_lock_v1',fmt=n=>Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})+' USDT',stats=document.getElementById('qwd-stats');if(!stats)return;
+const profit=principal*rate*days,total=principal+profit;
+stats.innerHTML=[['Demo principal',fmt(principal)],['Daily estimate',fmt(principal*rate)],['90-day profit estimate',fmt(profit)],['Illustrative total',fmt(total)]].map(([k,v])=>'<div class="stat" style="padding:10px;border:1px solid var(--line);border-radius:8px"><span>'+k+'</span><strong>'+v+'</strong></div>').join('');
+const status=document.getElementById('qwd-status'),start=document.getElementById('qwd-start');
+function show(){let t;try{t=JSON.parse(localStorage.getItem(key)||'null')}catch{}if(!t){status.textContent='Demo not started. No funds are involved.';return}const end=t.started+days*86400000,left=Math.max(0,end-Date.now());status.textContent=left>0?'Demo timer running · '+Math.ceil(left/86400000)+' days remain. This does not lock funds.':'Demo period complete · illustrative withdrawal preview: '+fmt(total)+'. No real withdrawal was submitted.'}
+start.addEventListener('click',()=>{localStorage.setItem(key,JSON.stringify({started:Date.now()}));show()});
+document.getElementById('qwd-preview').addEventListener('click',()=>{status.textContent='Hypothetical only: 100.00 USDT principal + '+fmt(profit)+' estimated profit = '+fmt(total)+' illustrative total after 90 days. No withdrawal request or payment occurred.'});
+show();
+})();
+</script></main>
 <script>
 (()=>{
 const $=id=>document.getElementById(id);
