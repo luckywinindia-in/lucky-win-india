@@ -80,6 +80,31 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
 <body><div class="banner">Official website · Registration offers and payments are currently paused</div>
 <main class="wrap"><header><h1>Lucky Win India</h1><p>Sign in to manage your account and view your referral information.</p></header>
 
+<section class="card" id="topInvestmentPlan" aria-labelledby="topInvestmentTitle">
+  <span class="demoTag">Top investment plan · calculation preview only</span>
+  <h2 id="topInvestmentTitle" style="margin-top:13px">USDT Investment Plan</h2>
+  <p>Choose any amount from 12 to 10,000,000 USDT and enter a hypothetical daily percentage. The same assumed rate is used to calculate simple-interest examples for 1, 30, 60 and 90 days. No actual investment or return is active.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px;margin-top:16px">
+    <div><label for="planAmount">Investment amount (12–10,000,000 USDT)</label><input id="planAmount" type="number" min="12" max="10000000" step="any" value="12" inputmode="decimal"></div>
+    <div><label for="planDailyRate">Assumed daily rate (%)</label><input id="planDailyRate" type="number" min="0" max="10" step="0.01" value="0" inputmode="decimal"></div>
+  </div>
+  <p style="font-size:12px;margin:10px 0 0">The daily rate is only a user-entered assumption, not a Lucky Win India offer, promised return or forecast.</p>
+  <div style="overflow-x:auto;margin-top:16px">
+    <table style="width:100%;border-collapse:collapse;font-size:13px;text-align:left">
+      <thead><tr style="color:#f2d78e"><th style="padding:11px 8px;border-bottom:1px solid var(--line)">Period</th><th style="padding:11px 8px;border-bottom:1px solid var(--line)">Estimated profit</th><th style="padding:11px 8px;border-bottom:1px solid var(--line)">Total amount</th></tr></thead>
+      <tbody>
+        <tr><td style="padding:11px 8px;border-bottom:1px solid var(--line)">1 day</td><td id="planProfit1" style="padding:11px 8px;border-bottom:1px solid var(--line)">0.00 USDT</td><td id="planTotal1" style="padding:11px 8px;border-bottom:1px solid var(--line)">12.00 USDT</td></tr>
+        <tr><td style="padding:11px 8px;border-bottom:1px solid var(--line)">1 month (30 days)</td><td id="planProfit30" style="padding:11px 8px;border-bottom:1px solid var(--line)">0.00 USDT</td><td id="planTotal30" style="padding:11px 8px;border-bottom:1px solid var(--line)">12.00 USDT</td></tr>
+        <tr><td style="padding:11px 8px;border-bottom:1px solid var(--line)">2 months (60 days)</td><td id="planProfit60" style="padding:11px 8px;border-bottom:1px solid var(--line)">0.00 USDT</td><td id="planTotal60" style="padding:11px 8px;border-bottom:1px solid var(--line)">12.00 USDT</td></tr>
+        <tr><td style="padding:11px 8px">3 months (90 days)</td><td id="planProfit90" style="padding:11px 8px">0.00 USDT</td><td id="planTotal90" style="padding:11px 8px">12.00 USDT</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p id="planValidation" class="msg" aria-live="polite"></p>
+  <button class="primary" id="planBuyButton" type="button" disabled aria-disabled="true">Buy / Invest · Locked until legal approval</button>
+  <div class="notice" style="margin-top:13px"><strong>Payment disabled:</strong> This button is intentionally inactive. No deposit, investment, wallet transfer, trade, withdrawal or payout is connected. Do not send USDT to anyone for this preview.</div>
+</section>
+
 <section class="card" id="tradingTerminal" aria-labelledby="tradingHeading">
   <span class="demoTag">Trading access · Locked pending approvals</span>
   <h2 id="tradingHeading" style="margin-top:13px">Stocks &amp; Crypto Trading</h2>
@@ -190,4 +215,7 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
 (()=>{const ids=["estimatePrincipal","estimateRate","estimateMonths"];const fmt=n=>n.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});function update(){const p=Number(document.getElementById(ids[0]).value),r=Number(document.getElementById(ids[1]).value),m=Number(document.getElementById(ids[2]).value);const total=document.getElementById("estimateTotal"),gain=document.getElementById("estimateGain");if(!Number.isFinite(p)||!Number.isFinite(r)||!Number.isFinite(m)||p<=0||r<0||r>100||m<1||m>120||!Number.isInteger(m)){total.textContent="Enter valid values";gain.textContent="Amount must be above 0; rate 0–100%; duration 1–120 whole months.";return}const t=p*(1+r*m/100);total.textContent=fmt(t)+" USDT";gain.textContent="Illustrative gain: "+fmt(t-p)+" USDT · not guaranteed"}ids.forEach(id=>document.getElementById(id).addEventListener("input",update));update()})();
 </script>
 
+<script>
+(()=>{const amount=document.getElementById("planAmount"),rate=document.getElementById("planDailyRate");if(!amount||!rate)return;const fmt=n=>n.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});function calc(){const p=Number(amount.value),r=Number(rate.value),msg=document.getElementById("planValidation");if(!Number.isFinite(p)||!Number.isFinite(r)||p<12||p>10000000||r<0||r>10){msg.textContent="Enter an amount from 12 to 10,000,000 USDT and a hypothetical daily rate from 0 to 10%.";msg.className="msg error";return}msg.textContent="Illustration only · assumed rate: "+r.toFixed(2)+"% per day · simple interest, not compounded.";msg.className="msg";for(const days of [1,30,60,90]){const profit=p*r*days/100;document.getElementById("planProfit"+days).textContent=fmt(profit)+" USDT";document.getElementById("planTotal"+days).textContent=fmt(p+profit)+" USDT"}}amount.addEventListener("input",calc);rate.addEventListener("input",calc);calc()})();
+</script>
 </body></html>
