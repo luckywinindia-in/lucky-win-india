@@ -116,7 +116,18 @@ const last=['Sharma','Verma','Patel','Gupta','Yadav','Singh','Kumar','Mishra','J
 const list=document.getElementById('q-demo-investor-list');if(!list)return;
 const rows=Array.from({length:100},(_,i)=>({name:first[i%first.length]+' '+last[(i*7+Math.floor(i/first.length))%last.length],amount:Math.round((1000000-(i*999988/99))*100)/100}));
 rows.sort((a,b)=>b.amount-a.amount);
-list.innerHTML=rows.map((r,i)=>'<div style="min-width:0;display:flex;align-items:center;justify-content:space-between;gap:6px;padding:9px 8px;border:1px solid #5a4920;border-radius:8px;background:#17140d"><span style="font-size:12px;color:#e8dfc8;overflow-wrap:anywhere">'+(i+1)+'. '+r.name+'</span><strong style="font-size:12px;color:#f4d982;text-align:right;white-space:nowrap">'+r.amount.toLocaleString('en-US',{maximumFractionDigits:2})+' USDT</strong></div>').join('');
+let expanded=false;
+const render=()=>{
+ const visible=expanded?rows:rows.slice(0,5);
+ list.innerHTML=visible.map((r,i)=>'<div style="min-width:0;display:flex;align-items:center;justify-content:space-between;gap:6px;padding:9px 8px;border:1px solid #5a4920;border-radius:8px;background:#17140d"><span style="font-size:12px;color:#e8dfc8;overflow-wrap:anywhere">'+(i+1)+'. '+r.name+'</span><strong style="font-size:12px;color:#f4d982;text-align:right;white-space:nowrap">'+r.amount.toLocaleString('en-US',{maximumFractionDigits:2})+' USDT</strong></div>').join('');
+ const toggle=document.createElement('button');
+ toggle.type='button';toggle.textContent=expanded?'See Less':'See More (95 more)';
+ toggle.setAttribute('aria-expanded',String(expanded));
+ toggle.style.cssText='grid-column:1/-1;width:100%;padding:11px;border:1px solid #d4af37;border-radius:8px;background:transparent;color:#f4d982;font-weight:750;font-size:14px';
+ toggle.addEventListener('click',()=>{expanded=!expanded;render()});
+ list.appendChild(toggle);
+};
+render();
 }
 document.addEventListener('DOMContentLoaded',qRenderDemoInvestors);
 function qSavePaper(){const pair=document.getElementById('q-paperpair').value,dir=document.getElementById('q-direction').value,entry=qn('q-paperentry');document.getElementById('q-paperout').textContent=entry>0?'Practice only: '+dir+' '+pair+' at '+entry+'. No real order was placed.':'Enter a valid practice entry price.'}
