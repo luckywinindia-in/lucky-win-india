@@ -45,6 +45,18 @@ button:focus-visible,input:focus-visible{outline:2px solid #ffe6a1;outline-offse
 @media(max-width:480px){.wrap{padding-left:16px;padding-right:16px}.card{border-radius:16px}.banner{font-size:12px}.top{align-items:flex-start;flex-direction:row}.top h2{font-size:25px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
 
+
+.communityStats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.communityStat{padding:16px;border:1px solid rgba(230,189,88,.18);border-radius:13px;background:rgba(230,189,88,.045)}
+.communityStat b{display:block;color:#f2d78e;font-size:clamp(24px,6vw,32px);font-variant-numeric:tabular-nums}
+.demoTag{display:inline-block;padding:4px 8px;border:1px solid rgba(230,189,88,.35);border-radius:999px;color:#f0d58f;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.demoList{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:15px}
+.demoPerson{display:flex;align-items:center;gap:10px;padding:11px;border:1px solid rgba(230,189,88,.12);border-radius:11px;background:rgba(255,255,255,.018);min-width:0}
+.demoRank{width:30px;height:30px;flex:0 0 30px;display:grid;place-items:center;border-radius:9px;background:rgba(230,189,88,.12);color:#f2d78e;font-size:12px;font-weight:800}
+.demoPerson strong{display:block;color:#e9eaf0;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.demoPerson small{display:block;color:#9da6b6;font-size:11px}
+@media(max-width:430px){.communityStats{grid-template-columns:1fr}.demoList{grid-template-columns:1fr}}
+
 </style>
 <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.119.0/dist/umd/supabase.js"></script>
 <script defer>
@@ -67,6 +79,20 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
 <body><div class="banner">Official website · Registration offers and payments are currently paused</div>
 <main class="wrap"><header><h1>Lucky Win India</h1><p>Sign in to manage your account and view your referral information.</p></header>
 <div class="notice"><strong>Important:</strong> No entry fee or payment is being collected. Any prize promotion requires legal review, permissions and published terms. No prize is guaranteed.</div>
+
+<section class="card" id="communityPreview" aria-labelledby="communityTitle">
+  <span class="demoTag">Simulation · Sample data</span>
+  <h2 id="communityTitle" style="margin-top:13px">Community showcase</h2>
+  <p>This is a fictional preview for layout testing only. It does not represent real registered members, investors, deposits, investments, or earnings.</p>
+  <div class="communityStats">
+    <div class="communityStat"><b>1,00,000</b><small>Illustrative demo profiles</small></div>
+    <div class="communityStat"><b>100</b><small>Fictional sample profiles shown</small></div>
+  </div>
+  <h2 style="font-size:20px;margin:22px 0 5px">Top 100 demo profiles</h2>
+  <p style="font-size:12px">Ranked by fictional sample points — not by money invested.</p>
+  <div class="demoList" id="demoProfiles" aria-label="100 fictional demo profiles"></div>
+</section>
+
 <section class="card" id="authCard"><div class="tabs" role="tablist" aria-label="Account access"><button class="tab" id="signupTab" type="button" role="tab" aria-selected="true">Create account</button><button class="tab" id="loginTab" type="button" role="tab" aria-selected="false">Log in</button></div>
 <form id="authForm"><div id="signupFields"><label for="fullName">Full name</label><input id="fullName" autocomplete="name" maxlength="80" required><label for="phone">Mobile number</label><input id="phone" inputmode="numeric" autocomplete="tel" maxlength="10" pattern="[0-9]{10}" placeholder="10-digit mobile number" required></div>
 <label for="email">Email address</label><input id="email" type="email" autocomplete="email" required><label for="password">Password</label><input id="password" type="password" autocomplete="new-password" minlength="8" required><button class="primary" id="submitBtn">Create account</button><p class="msg" id="authMsg" role="status" aria-live="polite"></p></form></section>
@@ -77,4 +103,9 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
 <p style="margin:4px 0 0">This is a sample display balance only. It is not cryptocurrency, stored value, an investment, or money owed to you. No deposit, withdrawal, payment, blockchain transfer, return, or commission is available.</p>
 </div>
 <div id="referralBlock" class="hidden"><label>Your referral link</label><p class="small" id="referralLink"></p><button class="secondary" id="copyBtn" type="button">Copy referral link</button><button class="secondary" id="shareBtn" type="button">Share link</button></div></section>
-<footer>Lucky Win India · Account access only. Paid registration and prize draws are not active.<br><a href="/admin.html" style="display:inline-block;margin-top:12px;color:#f4d982">Admin sign in</a></footer></main></body></html>
+<footer>Lucky Win India · Account access only. Paid registration and prize draws are not active.<br><a href="/admin.html" style="display:inline-block;margin-top:12px;color:#f4d982">Admin sign in</a></footer></main>
+<script>
+(()=>{const host=document.getElementById("demoProfiles");if(!host)return;const frag=document.createDocumentFragment();for(let i=1;i<=100;i++){const item=document.createElement("div");item.className="demoPerson";const rank=document.createElement("span");rank.className="demoRank";rank.textContent="#"+String(i).padStart(2,"0");const details=document.createElement("div");details.style.minWidth="0";const name=document.createElement("strong");name.textContent="Demo Member "+String(i).padStart(3,"0");const score=document.createElement("small");score.textContent=(10000+(101-i)*375).toLocaleString("en-IN")+" sample points";details.append(name,score);item.append(rank,details);frag.append(item)}host.append(frag)})();
+</script>
+
+</body></html>
