@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090909"><meta name="description" content="QURBIT live crypto market dashboard and educational AI signal bot.">
+<title>QURBIT · Live Trading & AI Bot</title>
+<style>
+:root{color-scheme:dark;--bg:#090909;--panel:#111c2b;--line:#334b65;--gold:#d4af37;--pale:#f4d982;--muted:#b8c8dc;--teal:#4de2d0;--red:#ff8888;--green:#79d9a0}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#fff;font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}.banner{text-align:center;padding:9px;background:#33290e;color:var(--pale);font-weight:750}.wrap{width:min(100%,900px);margin:auto;padding:0 14px 40px}.top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:15px 0}.top a{color:var(--pale);text-decoration:none;border:1px solid var(--line);padding:8px 11px;border-radius:8px;font-size:13px}.top h1{margin:0;color:var(--pale);font: bold 28px Georgia,serif}.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}h2{margin:0 0 8px;color:var(--pale);font: bold 22px Georgia,serif}p{color:var(--muted);margin:0 0 12px}.controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}label{display:block;color:#d8e9f8;font-size:13px;margin:0 0 5px}select,button{font:inherit}select{width:100%;padding:11px;background:#091525;border:1px solid var(--line);border-radius:8px;color:#fff}.btn{padding:11px 14px;border:0;border-radius:8px;background:var(--teal);color:#06151a;font-weight:800;cursor:pointer}.btn.secondary{background:transparent;color:var(--pale);border:1px solid var(--gold)}.btn:disabled{opacity:.5}.status{font-size:12px;color:var(--muted)}.status.live{color:var(--green)}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:12px}.stat{min-width:0;padding:11px;background:#172437;border:1px solid #405875;border-radius:8px}.stat span{display:block;color:var(--muted);font-size:12px}.stat strong{display:block;color:var(--pale);font-size:clamp(14px,2vw,18px);overflow-wrap:anywhere}.chart{height:500px;overflow:hidden;border-radius:9px;background:#0b1420}.chart iframe{width:100%;height:100%;border:0}.signal{padding:14px;border:1px solid var(--line);border-radius:9px;background:#0b1420}.signal strong{font-size:20px}.bull{color:var(--green)}.bear{color:var(--red)}.neutral{color:var(--pale)}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.metric{padding:10px;background:#172437;border-radius:8px;border:1px solid #334b65}.metric span{display:block;color:var(--muted);font-size:12px}.metric b{color:#fff;overflow-wrap:anywhere}.note{background:#172437;border-left:3px solid #ffc76b;padding:11px;border-radius:6px;color:#ffe0a7;font-size:12px;margin-top:12px}footer{text-align:center;color:var(--muted);font-size:12px;margin:24px 0}.muted{color:var(--muted)}@media(max-width:620px){.controls{grid-template-columns:repeat(2,minmax(0,1fr))}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.chart{height:390px}.top{align-items:flex-start}.top h1{font-size:23px}}@media(max-width:360px){.wrap{padding-left:9px;padding-right:9px}.card{padding:12px}.chart{height:340px}}
+</style>
+</head>
+<body>
+<div class="banner">QURBIT · Beyond Finance. Into Intelligence.</div>
+<main class="wrap">
+<div class="top"><a href="/">← Main page</a><h1>Live Trading &amp; QURBIT AI</h1><a href="/invest.html">Invest Plan</a></div>
+<section class="card">
+<h2>Live Market Watch</h2>
+<p>Choose a market and timeframe. The embedded chart is provided by TradingView; live candle data for the signal engine comes from Binance public market-data streams.</p>
+<div class="controls">
+<div><label for="pair">Crypto pair</label><select id="pair"><option value="BTCUSDT">BTC / USDT</option><option value="ETHUSDT">ETH / USDT</option><option value="BNBUSDT">BNB / USDT</option><option value="SOLUSDT">SOL / USDT</option><option value="XRPUSDT">XRP / USDT</option></select></div>
+<div><label for="interval">Timeframe</label><select id="interval"><option value="1m">1 minute</option><option value="5m" selected>5 minutes</option><option value="15m">15 minutes</option><option value="1h">1 hour</option><option value="4h">4 hours</option></select></div>
+<div style="display:flex;align-items:end"><button class="btn" id="startBtn" type="button">Start Live Bot</button></div>
+</div>
+<div class="stats">
+<div class="stat"><span>Live price (USDT)</span><strong id="price">—</strong></div>
+<div class="stat"><span>24h change</span><strong id="change">—</strong></div>
+<div class="stat"><span>24h high</span><strong id="high">—</strong></div>
+<div class="stat"><span>24h low</span><strong id="low">—</strong></div>
+</div>
+<p class="status" id="connection" aria-live="polite" style="margin-top:10px">Bot stopped · Tap Start Live Bot to connect to public market data.</p>
+</section>
+<section class="card">
+<h2>Live Trading Chart</h2>
+<div class="chart"><iframe id="tvchart" title="TradingView live crypto chart" loading="lazy" allowtransparency="true" src="https://s.tradingview.com/widgetembed/?frameElementId=qurbit-tv&symbol=BINANCE%3ABTCUSDT&interval=5&hidesidetoolbar=1&symboledit=1&saveimage=1&toolbarbg=%23090f18&theme=dark&style=1&timezone=Etc%2FUTC&withdateranges=1&hideideas=1&locale=en"></iframe></div>
+<p class="status" style="margin-top:8px">Chart data and availability are controlled by TradingView and its supported exchanges.</p>
+</section>
+<section class="card">
+<h2>QURBIT AI Trading Bot</h2>
+<p>Live indicator engine · EMA 9/21 · RSI 14 · MACD · ATR risk levels</p>
+<div class="signal">
+<div class="status">CURRENT SETUP · EDUCATIONAL SIGNAL ONLY</div>
+<strong id="signal" class="neutral">Waiting for live candles…</strong>
+<p id="reason" style="margin:6px 0 0">Start the bot to load recent market candles and calculate indicators.</p>
+</div>
+<div class="grid2" style="margin-top:10px">
+<div class="metric"><span>EMA 9 / EMA 21</span><b id="ema">—</b></div>
+<div class="metric"><span>RSI 14</span><b id="rsi">—</b></div>
+<div class="metric"><span>MACD histogram</span><b id="macd">—</b></div>
+<div class="metric"><span>ATR 14</span><b id="atr">—</b></div>
+<div class="metric"><span>Illustrative stop level</span><b id="stop">—</b></div>
+<div class="metric"><span>Illustrative target (2R)</span><b id="target">—</b></div>
+</div>
+<p class="note">Transparency: this is a rule-based indicator engine named QURBIT AI, not a trained autonomous AI model. A bullish/bearish setup is not a guaranteed prediction or personal financial advice. Stop/target values are mathematical examples based on recent volatility. No exchange account, order placement, auto-trading, deposit, withdrawal or real-money execution is connected.</p>
+</section>
+<section class="card">
+<h2>Paper Trading Only</h2>
+<p>Use the setup to practice manually. No real order is sent and no balance is changed.</p>
+<div class="grid2">
+<div class="metric"><span>Practice direction</span><b id="paperDirection">—</b></div>
+<div class="metric"><span>Reference price</span><b id="paperPrice">—</b></div>
+</div>
+<button class="btn secondary" id="paperBtn" type="button" style="margin-top:12px" disabled>Record Paper Setup</button>
+<div class="status" id="paperMsg" aria-live="polite" style="margin-top:8px">Start the live bot before recording a practice setup.</div>
+</section>
+<footer>QURBIT · Live public market data · Educational tools only.</footer>
+</main>
+<script>
+(()=>{
+const $=id=>document.getElementById(id);
+const pair=$('pair'),interval=$('interval');
+let socket=null,candles=[],running=false,lastSignal='WAIT',lastPrice=0,reconnectTimer=null;
+const fmt=n=>Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:6});
+const intervalMap={'1m':'1','5m':'5','15m':'15','1h':'60','4h':'240'};
+function setStatus(t,live=false){$('connection').textContent=t;$('connection').className='status'+(live?' live':'')}
+function chart(){const symbol='BINANCE:'+pair.value;const url='https://s.tradingview.com/widgetembed/?frameElementId=qurbit-tv&symbol='+encodeURIComponent(symbol)+'&interval='+intervalMap[interval.value]+'&hidesidetoolbar=1&symboledit=1&saveimage=1&toolbarbg=%23090f18&theme=dark&style=1&timezone=Etc%2FUTC&withdateranges=1&hideideas=1&locale=en';$('tvchart').src=url}
+function ema(values,period){if(values.length<period)return null;const k=2/(period+1);let v=values.slice(0,period).reduce((a,b)=>a+b,0)/period;for(let i=period;i<values.length;i++)v=values[i]*k+v*(1-k);return v}
+function rsi(values,period=14){if(values.length<=period)return null;let gain=0,loss=0;for(let i=values.length-period;i<values.length;i++){const d=values[i]-values[i-1];if(d>0)gain+=d;else loss-=d}if(loss===0)return 100;const rs=(gain/period)/(loss/period);return 100-100/(1+rs)}
+function atr(data,period=14){if(data.length<=period)return null;let sum=0;for(let i=data.length-period;i<data.length;i++){const p=data[i-1],c=data[i];sum+=Math.max(c.h-c.l,Math.abs(c.h-p.c),Math.abs(c.l-p.c))}return sum/period}
+function macdHist(values){const a=ema(values,12),b=ema(values,26);if(a===null||b===null)return null;const histValues=[];for(let i=25;i<values.length;i++){const part=values.slice(0,i+1);histValues.push(ema(part,12)-ema(part,26))}const sig=ema(histValues,9);return sig===null?null:(a-b)-sig}
+function renderBot(){
+if(candles.length<35)return;
+const closes=candles.map(c=>c.c),e9=ema(closes,9),e21=ema(closes,21),rv=rsi(closes),av=atr(candles),mh=macdHist(closes),price=closes[closes.length-1];
+if([e9,e21,rv,av,mh].some(v=>v===null||!Number.isFinite(v)))return;
+let sig='WAIT',reason='Indicators are mixed. Wait for clearer confirmation.';
+if(e9>e21&&rv>=50&&rv<70&&mh>0){sig='BULLISH SETUP';reason='EMA 9 is above EMA 21, RSI shows positive momentum and MACD histogram is positive. This is a bullish technical configuration, not a buy instruction.'}
+else if(e9<e21&&rv>30&&rv<=50&&mh<0){sig='BEARISH SETUP';reason='EMA 9 is below EMA 21, RSI shows weaker momentum and MACD histogram is negative. This is a bearish technical configuration, not a sell instruction.'}
+else if(rv>=70){reason='RSI is above 70; momentum may be stretched. Avoid treating this as a fresh entry signal.'}
+else if(rv<=30){reason='RSI is below 30; momentum may be stretched. A reversal is not confirmed.'}
+lastSignal=sig;
+$('signal').textContent=sig;$('signal').className=sig==='BULLISH SETUP'?'bull':sig==='BEARISH SETUP'?'bear':'neutral';
+$('reason').textContent=reason;
+$('ema').textContent=fmt(e9)+' / '+fmt(e21);$('rsi').textContent=rv.toFixed(2);$('macd').textContent=mh.toFixed(6);$('atr').textContent=fmt(av);
+const stop=sig==='BULLISH SETUP'?price-av:sig==='BEARISH SETUP'?price+av:null;
+const target=sig==='BULLISH SETUP'?price+2*av:sig==='BEARISH SETUP'?price-2*av:null;
+$('stop').textContent=stop===null?'Not set':fmt(stop)+' USDT';$('target').textContent=target===null?'Not set':fmt(target)+' USDT';
+$('paperDirection').textContent=sig;$('paperPrice').textContent=fmt(price)+' USDT';$('paperBtn').disabled=false;
+}
+async function loadHistory(){
+const url='https://data-api.binance.vision/api/v3/klines?symbol='+pair.value+'&interval='+interval.value+'&limit=100';
+const res=await fetch(url);if(!res.ok)throw new Error('Market history unavailable ('+res.status+').');
+const data=await res.json();candles=data.map(k=>({t:k[0],o:+k[1],h:+k[2],l:+k[3],c:+k[4],v:+k[5]}));renderBot();
+}
+async function loadTicker(){
+try{const r=await fetch('https://data-api.binance.vision/api/v3/ticker/24hr?symbol='+pair.value);if(!r.ok)return;const d=await r.json();$('price').textContent=fmt(+d.lastPrice);$('change').textContent=(+d.priceChangePercent).toFixed(2)+'%';$('change').style.color=+d.priceChangePercent>=0?'var(--green)':'var(--red)';$('high').textContent=fmt(+d.highPrice);$('low').textContent=fmt(+d.lowPrice);lastPrice=+d.lastPrice}catch(e){$('price').textContent='Feed unavailable'}}
+function stop(){running=false;if(socket){socket.onclose=null;socket.close();socket=null}if(reconnectTimer)clearTimeout(reconnectTimer);$('startBtn').textContent='Start Live Bot';setStatus('Bot stopped. No orders are active.')}
+function connect(){
+if(!running)return;
+const stream=pair.value.toLowerCase()+'@kline_'+interval.value;
+socket=new WebSocket('wss://data-stream.binance.vision:443/ws/'+stream);
+socket.onopen=()=>{setStatus('LIVE · Connected to public market-data stream · '+pair.value+' · '+interval.value,true);$('startBtn').textContent='Stop Live Bot'};
+socket.onmessage=e=>{try{const d=JSON.parse(e.data);if(d.e!=='kline')return;const k=d.k,c={t:k.t,o:+k.o,h:+k.h,l:+k.l,c:+k.c,v:+k.v};const i=candles.findIndex(x=>x.t===c.t);if(i>=0)candles[i]=c;else{candles.push(c);if(candles.length>120)candles.shift()}$('price').textContent=fmt(c.c);lastPrice=c.c;renderBot()}catch(err){}};
+socket.onerror=()=>setStatus('Market stream error. Check network or try again.',false);
+socket.onclose=()=>{if(running){setStatus('Stream disconnected · reconnecting…');reconnectTimer=setTimeout(connect,2500)}};
+}
+async function start(){
+stop();running=true;$('startBtn').textContent='Connecting…';setStatus('Loading recent candles and connecting to live market data…');
+chart();await loadTicker();
+try{await loadHistory();await loadTicker();connect()}catch(e){setStatus(e.message+' Live connection not started.');running=false;$('startBtn').textContent='Start Live Bot'}
+}
+$('startBtn').addEventListener('click',()=>{if(running)stop();else start()});
+pair.addEventListener('change',()=>{chart();if(running)start();else{candles=[];loadTicker()}});
+interval.addEventListener('change',()=>{chart();if(running)start();else{candles=[]}});
+$('paperBtn').addEventListener('click',()=>{$('paperMsg').textContent='Paper setup recorded locally for this page session: '+lastSignal+' on '+pair.value+' at '+fmt(lastPrice)+' USDT. No real trade was placed.'});
+chart();
+window.addEventListener('beforeunload',()=>{running=false;if(socket)socket.close()});
+})();
+</script>
+</body></html>
