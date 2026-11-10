@@ -142,7 +142,7 @@ $('startBtn').addEventListener('click',()=>{if(running)stop();else start()});
 pair.addEventListener('change',()=>{chart();if(running)start();else{candles=[];loadTicker()}});
 interval.addEventListener('change',()=>{chart();if(running)start();else{candles=[]}});
 $('paperBtn').addEventListener('click',()=>{$('paperMsg').textContent='Paper setup recorded locally for this page session: '+lastSignal+' on '+pair.value+' at '+fmt(lastPrice)+' USDT. No real trade was placed.'});
-chart();
+chart();start();
 window.addEventListener('beforeunload',()=>{running=false;if(socket)socket.close()});
 })();
 </script>
