@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#090909"><meta name="description" content="Lucky Win India account and referral portal">
-<title>Lucky Win India</title>
+<title>Lucky Win India — Coming Soon</title>
+<meta property="og:type" content="website"><meta property="og:site_name" content="Lucky Win India"><meta property="og:title" content="Lucky Win India — Coming Soon"><meta property="og:description" content="Lucky Win India official website preview. Coming soon; launch pending required approvals."><meta property="og:image" content="https://lucky-win-india.vercel.app/share-card.svg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Lucky Win India — Coming Soon"><meta name="twitter:description" content="Official website preview. Coming soon; launch pending required approvals."><meta name="twitter:image" content="https://lucky-win-india.vercel.app/share-card.svg"><link rel="icon" type="image/svg+xml" href="/share-card.svg">
 <link rel="preconnect" href="https://othynttlaxymqjudntdq.supabase.co" crossorigin>
 <style>
 :root{color-scheme:dark;--bg:#090909;--panel:#151515;--line:#40351c;--gold:#d4af37;--pale:#f4d982;--muted:#c1bba9;--red:#ff8585;--green:#79d9a0}
@@ -76,6 +77,13 @@ button:focus-visible,input:focus-visible{outline:2px solid #ffe6a1;outline-offse
 #topInvestmentPlan .communityStat{background:linear-gradient(145deg,rgba(230,189,88,.12),rgba(255,255,255,.025));border-color:rgba(230,189,88,.3)}
 @media(max-width:480px){.planHero{padding:16px 14px}.planHeroMeta{gap:6px}.planHeroMeta span{font-size:9px;padding:6px 8px}}
 
+
+.brandHeader{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brandHeader h1{margin-top:30px}
+.shareSiteBtn{flex:0 0 auto;padding:12px 17px;border:1px solid rgba(230,189,88,.55);border-radius:999px;background:linear-gradient(135deg,rgba(230,189,88,.18),rgba(255,255,255,.035));color:#ffe6a1;font:700 13px system-ui;box-shadow:0 8px 24px rgba(0,0,0,.22)}
+.shareSiteBtn:active{transform:scale(.97)}
+@media(max-width:480px){.brandHeader{align-items:flex-start}.brandHeader h1{font-size:clamp(32px,9vw,48px);margin-top:24px}.shareSiteBtn{margin-top:26px;padding:10px 12px}}
+
 </style>
 <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.119.0/dist/umd/supabase.js"></script>
 <script defer>
@@ -147,7 +155,7 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
   <button class="primary" id="planBuyButton" type="button" disabled aria-disabled="true">Buy / Invest · Locked until legal approval</button>
   <div class="notice" style="margin-top:13px"><strong>Payment disabled:</strong> This is a hypothetical calculator only. No deposit, investment, wallet transfer, trade, withdrawal or payout is connected. Do not send USDT to anyone for this preview.</div>
 </section>
-<header><h1>Lucky Win India</h1><p>Sign in to manage your account and view your referral information.</p></header>
+<header><div class="brandHeader"><div><h1>Lucky Win India</h1><p>Sign in to manage your account and view your referral information.</p></div><button class="shareSiteBtn" id="shareSiteBtn" type="button" aria-label="Share Lucky Win India">↗ Share</button></div></header>
 
 <section class="card" id="tradingTerminal" aria-labelledby="tradingHeading">
   <span class="demoTag">Trading access · Locked pending approvals</span>
@@ -262,4 +270,9 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
 <script>
 (()=>{const amount=document.getElementById("planAmount");if(!amount)return;const fmt=n=>n.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2}),presets=[12,50,100,500,1000,5000,10000,50000,100000,500000,1000000,5000000,10000000];const presetRows=document.getElementById("planPresetRows"),presetFrag=document.createDocumentFragment();presets.forEach(p=>{const tr=document.createElement("tr");[p.toLocaleString("en-US")+" USDT",fmt(p/12)+" USDT",fmt(p/12*90)+" USDT"].forEach(v=>{const td=document.createElement("td");td.textContent=v;td.style.padding="10px 9px";td.style.borderTop="1px solid var(--line)";tr.append(td)});const td=document.createElement("td");td.style.padding="8px 9px";td.style.borderTop="1px solid var(--line)";const b=document.createElement("button");b.type="button";b.className="textButton";b.textContent="Select";b.addEventListener("click",()=>{amount.value=String(p);calc();amount.focus()});td.append(b);tr.append(td);presetFrag.append(tr)});presetRows.replaceChildren(presetFrag);function calc(){const p=Number(amount.value),msg=document.getElementById("planValidation");if(!Number.isFinite(p)||p<12||p>10000000){msg.textContent="Enter an amount from 12 to 10,000,000 USDT.";msg.className="msg error";return}const daily=p/12;document.getElementById("planDailyProfit").textContent=fmt(daily)+" USDT";document.getElementById("planNinetyProfit").textContent=fmt(daily*90)+" USDT";const rows=document.getElementById("planDailyRows"),frag=document.createDocumentFragment();for(let day=1;day<=90;day++){const tr=document.createElement("tr");[String(day),fmt(daily)+" USDT",fmt(daily*day)+" USDT",fmt(p+daily*day)+" USDT"].forEach(value=>{const td=document.createElement("td");td.textContent=value;td.style.padding="10px 8px";td.style.borderBottom="1px solid var(--line)";tr.append(td)});frag.append(tr)}rows.replaceChildren(frag);msg.textContent="Hypothetical calculation only · assumed daily figure: "+fmt(daily)+" USDT · simple arithmetic, not an actual return.";msg.className="msg"}document.querySelectorAll(".planAmountChoice").forEach(button=>button.addEventListener("click",()=>{amount.value=button.dataset.amount.replace(/,/g,"");calc();amount.focus()}));amount.addEventListener("input",calc);calc()})();
 </script>
+
+<script>
+(()=>{const btn=document.getElementById("shareSiteBtn");if(!btn)return;btn.addEventListener("click",async()=>{const shareData={title:"Lucky Win India — Coming Soon",text:"LUCKY WIN INDIA · COMING SOON\nOfficial website preview. Launch pending required approvals.",url:location.origin+"/"};try{if(navigator.share){await navigator.share(shareData)}else if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(shareData.text+"\n"+shareData.url);btn.textContent="Link copied";setTimeout(()=>btn.textContent="↗ Share",2200)}else{window.prompt("Copy website link",shareData.url)}}catch(e){if(e?.name!=="AbortError"){btn.textContent="Share unavailable";setTimeout(()=>btn.textContent="↗ Share",2200)}}})})();
+</script>
+
 </body></html>
