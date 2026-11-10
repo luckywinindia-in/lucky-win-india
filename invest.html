@@ -7,6 +7,8 @@
 <style>
 :root{color-scheme:dark;--bg:#090909;--panel:#101d30;--line:#36516d;--gold:#d4af37;--pale:#f4d982;--muted:#b8c8dc}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:#fff;font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}.wrap{width:min(100%,680px);margin:auto;padding:0 14px 40px}.banner{text-align:center;padding:9px;background:#33290e;color:var(--pale);font-weight:700}.top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:16px 0}.top a{color:var(--pale);text-decoration:none;border:1px solid var(--line);padding:8px 11px;border-radius:8px;font-size:13px}h1,h2,h3{color:var(--pale);margin:0 0 8px}h1{font: bold 34px/1.15 Georgia,serif}h2{font: bold 23px/1.2 Georgia,serif}p{color:var(--muted);margin:0 0 12px}.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}.note{background:#172437;border-left:3px solid #ffc76b;padding:11px;border-radius:6px;color:#ffe0a7;font-size:12px;margin-top:13px}label{display:block;color:#d8e9f8;margin:12px 0 6px}select{width:100%;min-width:0;padding:12px;background:#091525;border:1px solid #304763;border-radius:8px;color:white;font:inherit}.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:12px}.stat{min-width:0;padding:11px;background:#172437;border:1px solid #405875;border-radius:8px;overflow-wrap:anywhere}.stat span{display:block;color:var(--muted);font-size:12px}.stat strong{display:block;color:var(--pale);font-size:clamp(13px,3.7vw,16px);overflow-wrap:anywhere}.table-wrap{width:100%;overflow:hidden}table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:13px;color:#e7edf5}th,td{padding:9px 5px;border-top:1px solid #304763;text-align:left;overflow-wrap:anywhere}th:last-child,td:last-child{text-align:right}th:nth-child(2),td:nth-child(2){text-align:right}footer{text-align:center;color:var(--muted);font-size:12px;margin-top:24px}@media(max-width:360px){.wrap{padding-left:10px;padding-right:10px}.card{padding:12px}h1{font-size:30px}.stats{gap:7px}.stat{padding:9px}th,td{font-size:12px;padding:8px 3px}}
+
+.chart-grid{display:grid;grid-template-columns:1fr;gap:12px}.chart-card{background:#0b1726;border:1px solid #405875;border-radius:10px;padding:12px;min-width:0}.chart-card h3{font-size:18px;margin-bottom:8px}.chart-card table{font-size:12px}.chart-card th,.chart-card td{padding:8px 4px}.chart-card th:nth-child(1),.chart-card td:nth-child(1){text-align:left}.chart-card th:nth-child(2),.chart-card td:nth-child(2){text-align:right}.chart-card th:nth-child(3),.chart-card td:nth-child(3){text-align:right}.bar-track{height:5px;background:#263a50;border-radius:8px;overflow:hidden;margin-top:4px}.bar-fill{height:100%;background:linear-gradient(90deg,#a77c21,#f4d982);border-radius:8px}.chart-sub{font-size:11px;color:var(--muted);margin:0 0 8px}
 </style></head>
 <body><div class="banner">QURBIT · Beyond Finance. Into Intelligence.</div>
 <main class="wrap">
@@ -20,6 +22,13 @@
 <div class="stats" id="stats" aria-live="polite"></div>
 <p class="note">Simulation only: 8.333333333% is a user-provided hypothetical daily arithmetic assumption, not an actual or guaranteed return. Monthly figures use 30 days; 3 months use 90 days. No compounding is applied. This is not a real investment offer. Deposits, pooled funds, commissions, transfers, withdrawals and live trading are disabled.</p>
 </section>
+
+<section class="card" id="full-plan-chart">
+<h2>Full Invest &amp; Profit Charts</h2>
+<p>All plan amounts from 12 to 1,000,000 USDT, compared separately for each duration.</p>
+<div class="chart-grid" id="plan-charts" aria-live="polite"></div>
+<p class="note">All profit figures are arithmetic simulations using the same hypothetical 8.333333333% daily assumption shown above. They are not actual, expected or guaranteed returns. No deposits, investment collection, commissions, transfers, withdrawals or live trading are enabled.</p>
+</section>
 <section class="card" id="share-plan">
 <h2>Share Distribution Plan</h2><p>Illustrative 10% allocation split across five levels, shown below the projection plan.</p>
 <div class="table-wrap"><table><thead><tr><th>Level</th><th>Share</th></tr></thead><tbody>
@@ -30,5 +39,19 @@
 <footer>QURBIT · Projection and allocation information only.</footer>
 </main>
 <script>
-(()=>{const el=document.getElementById('amount'),stats=document.getElementById('stats'),rate=0.08333333333;const fmt=n=>n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:4})+' USDT';function render(){const amount=Number(el.value),daily=amount*rate;const rows=[['Plan amount',amount],['1 day estimate',daily],['1 month · 30 days',daily*30],['2 months · 60 days',daily*60],['3 months · 90 days',daily*90]];stats.innerHTML=rows.map(([label,value])=>'<div class="stat"><span>'+label+'</span><strong>'+fmt(value)+'</strong></div>').join('')}el.addEventListener('change',render);render()})();
+(()=>{const el=document.getElementById('amount'),stats=document.getElementById('stats'),rate=0.08333333333;const fmt=n=>n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:4})+' USDT';function render(){const amount=Number(el.value),daily=amount*rate;const rows=[['Plan amount',amount],['1 day estimate',daily],['1 month · 30 days',daily*30],['2 months · 60 days',daily*60],['3 months · 90 days',daily*90]];stats.innerHTML=rows.map(([label,value])=>'<div class="stat"><span>'+label+'</span><strong>'+fmt(value)+'</strong></div>').join('')}el.addEventListener('change',render);render();
+const chartRoot=document.getElementById('plan-charts');
+const tiers=[12,50,100,500,1000,5000,10000,50000,100000,500000,1000000];
+const periods=[{label:'1 Day',days:1},{label:'1 Month · 30 Days',days:30},{label:'2 Months · 60 Days',days:60},{label:'3 Months · 90 Days',days:90}];
+const money=n=>n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+chartRoot.innerHTML=periods.map(period=>{
+ const maxTotal=1000000+(1000000*rate*period.days);
+ const rows=tiers.map(amount=>{
+  const profit=amount*rate*period.days,total=amount+profit;
+  const width=Math.max(1,total/maxTotal*100);
+  return '<tr><td>'+money(amount)+'<div class="bar-track"><div class="bar-fill" style="width:'+width+'%"></div></div></td><td>'+money(profit)+'</td><td>'+money(total)+'</td></tr>';
+ }).join('');
+ return '<div class="chart-card"><h3>'+period.label+'</h3><p class="chart-sub">Investment amount · Estimated profit · Total estimate (USDT)</p><div class="table-wrap"><table><thead><tr><th>Invest</th><th>Profit</th><th>Total</th></tr></thead><tbody>'+rows+'</tbody></table></div></div>';
+}).join('');
+})();
 </script></body></html>
