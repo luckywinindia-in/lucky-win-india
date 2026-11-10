@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#090909"><meta name="description" content="Lucky Win India account and referral portal">
-<title>Lucky Win India</title>
+<meta name="theme-color" content="#090909"><meta name="description" content="QURBIT — Beyond Finance. Into Intelligence.">
+<title>QURBIT — Beyond Finance. Into Intelligence.</title>
 <link rel="preconnect" href="https://othynttlaxymqjudntdq.supabase.co" crossorigin>
 <style>
 :root{color-scheme:dark;--bg:#090909;--panel:#151515;--line:#40351c;--gold:#d4af37;--pale:#f4d982;--muted:#c1bba9;--red:#ff8585;--green:#79d9a0}
@@ -21,17 +21,31 @@ async function loadProfile(user){say("profileMsg","Loading account…");const {d
 async function start(){if(!window.supabase){say("authMsg","Account service did not load. Check internet and refresh.","error");return}sb=window.supabase.createClient(URL,KEY);$("signupTab").onclick=()=>setMode("signup");$("loginTab").onclick=()=>setMode("login");
 $("authForm").onsubmit=async e=>{e.preventDefault();$("submitBtn").disabled=true;say("authMsg","Please wait…");try{const email=$("email").value.trim(),password=$("password").value;let result;if(mode==="signup"){const full_name=$("fullName").value.trim(),phone=$("phone").value.trim();if(!full_name||!/^\d{10}$/.test(phone)){say("authMsg","Enter your name and valid 10-digit mobile number.","error");return}result=await sb.auth.signUp({email,password,options:{data:{full_name,phone,referred_by:new URLSearchParams(location.search).get("ref")||null}}});if(!result.error&&!result.data.session){say("authMsg","Account created. Verify your email, then log in.","success");return}}else result=await sb.auth.signInWithPassword({email,password});if(result.error){say("authMsg",result.error.message,"error");return}account(result.data.user);say("authMsg",mode==="signup"?"Account created.":"Signed in.","success")}catch(err){say("authMsg",err.message||"Request failed. Please try again.","error")}finally{$("submitBtn").disabled=false}};
 $("logoutBtn").onclick=async()=>{await sb.auth.signOut();account(null)};$("copyBtn").onclick=async()=>{try{await navigator.clipboard.writeText($("referralLink").textContent);say("profileMsg","Referral link copied.","success")}catch{say("profileMsg","Select and copy the link manually.","error")}};
-$("shareBtn").onclick=()=>{const url=$("referralLink").textContent;if(navigator.share)navigator.share({title:"Lucky Win India",text:"My referral link",url}).catch(()=>{});else location.href="https://wa.me/?text="+encodeURIComponent("My Lucky Win India referral link: "+url)};
+$("shareBtn").onclick=()=>{const url=$("referralLink").textContent;if(navigator.share)navigator.share({title:"QURBIT",text:"My referral link",url}).catch(()=>{});else location.href="https://wa.me/?text="+encodeURIComponent("My QURBIT referral link: "+url)};
 sb.auth.onAuthStateChange((_event,session)=>{account(session?.user||null)});const {data,error}=await sb.auth.getSession();if(error)say("authMsg","Could not restore session. Please log in.","error");else account(data.session?.user||null)}
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",start,{once:true});else start();
 })();
 </script>
 </head>
-<body><div class="banner">Official website · Registration offers and payments are currently paused</div>
-<main class="wrap"><header><h1>Lucky Win India</h1><p>Sign in to manage your account and view your referral information.</p></header>
+<body><div class="banner">QURBIT · Account and intelligence platform</div>
+<style>
+.q-nav{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0}.q-nav a{color:#f4d982;border:1px solid #40351c;padding:8px 11px;border-radius:8px;text-decoration:none;font-size:13px}
+.q-tools{margin-top:24px}.q-tools .q-card{margin-top:14px;padding:20px;background:#101d30;border:1px solid #29405b;border-radius:12px}
+.q-tools h2{font-family:system-ui,sans-serif;color:#6fe7d5;font-size:22px}.q-tools p{color:#b8c8dc}.q-tools label{color:#b8c8dc}.q-tools input,.q-tools select{width:100%;padding:12px;background:#091525;border:1px solid #304763;border-radius:8px;color:white;font:inherit}
+.q-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.q-tools button{padding:12px 15px;border:0;border-radius:8px;background:#4de2d0;color:#071520;font-weight:750}.q-out{margin-top:12px;padding:12px;border:1px solid #3a536f;border-radius:8px;color:#d8e9f8;white-space:normal}.q-note{background:#172437;border-left:3px solid #ffc76b;padding:12px;border-radius:6px;color:#ffe0a7;font-size:13px}
+@media(max-width:520px){.q-grid{grid-template-columns:1fr}}
+</style>
+<main class="wrap"><header><h1>QURBIT</h1><p>Beyond Finance. Into Intelligence. Sign in to manage your account, referrals and QURBIT tools.</p></header>
 <div class="notice"><strong>Important:</strong> No entry fee or payment is being collected. Any prize promotion requires legal review, permissions and published terms. No prize is guaranteed.</div>
+<nav class="q-nav" aria-label="QURBIT tools"><a href="#q-ai">QURBIT AI</a><a href="#q-risk">Risk Calculator</a><a href="#q-paper">Paper Trading</a><a href="/admin.html">Admin</a></nav>
 <section class="card" id="authCard"><div class="tabs" role="tablist" aria-label="Account access"><button class="tab" id="signupTab" type="button" role="tab" aria-selected="true">Create account</button><button class="tab" id="loginTab" type="button" role="tab" aria-selected="false">Log in</button></div>
 <form id="authForm"><div id="signupFields"><label for="fullName">Full name</label><input id="fullName" autocomplete="name" maxlength="80" required><label for="phone">Mobile number</label><input id="phone" inputmode="numeric" autocomplete="tel" maxlength="10" pattern="[0-9]{10}" placeholder="10-digit mobile number" required></div>
 <label for="email">Email address</label><input id="email" type="email" autocomplete="email" required><label for="password">Password</label><input id="password" type="password" autocomplete="new-password" minlength="8" required><button class="primary" id="submitBtn">Create account</button><p class="msg" id="authMsg" role="status" aria-live="polite"></p></form></section>
 <section class="card hidden" id="accountCard"><div class="top"><h2 id="welcome">Your account</h2><button class="textButton" id="logoutBtn" type="button">Log out</button></div><p id="accountEmail"></p><p class="msg" id="profileMsg" role="status"></p><div id="referralBlock" class="hidden"><label>Your referral link</label><p class="small" id="referralLink"></p><button class="secondary" id="copyBtn" type="button">Copy referral link</button><button class="secondary" id="shareBtn" type="button">Share link</button></div></section>
-<footer>Lucky Win India · Account access only. Paid registration and prize draws are not active.<br><a href="/admin.html" style="display:inline-block;margin-top:12px;color:#f4d982">Admin sign in</a></footer></main></body></html>
+<footer>QURBIT · Beyond Finance. Into Intelligence. · Account access only.<br><a href="/admin.html" style="display:inline-block;margin-top:12px;color:#f4d982">Admin sign in</a></footer></main>
+<script>
+function qn(id){return Number(document.getElementById(id).value)}
+function qAnalyse(){const pair=document.getElementById('q-pair').value||'Selected market',price=qn('q-price'),rsi=qn('q-rsi'),a=qn('q-ema1'),b=qn('q-ema2'),o=document.getElementById('q-analysis');if(!(price>0)||!(rsi>=0&&rsi<=100)||!(a>0)||!(b>0)){o.textContent='Enter a positive price, both positive EMA values, and RSI from 0 to 100.';return}const trend=a>b?'Short EMA is above Long EMA (upward momentum indication).':'Short EMA is below or equal to Long EMA (downward/flat momentum indication).';const momentum=rsi<30?'RSI is in the traditionally oversold zone.':rsi>70?'RSI is in the traditionally overbought zone.':'RSI is between 30 and 70.';o.textContent=pair+' · Price: '+price+' USDT. '+trend+' '+momentum+' Educational context only; not a buy/sell instruction.'}
+function qCalcRisk(){const bal=qn('q-balance'),rp=qn('q-riskpct'),e=qn('q-entry'),s=qn('q-stop'),o=document.getElementById('q-riskout');if(!(bal>0)||!(rp>0&&rp<=5)||!(e>0)||!(s>0)||e===s){o.textContent='Enter a positive balance, risk up to 5%, and different entry/stop-loss prices.';return}const loss=bal*rp/100,qty=loss/Math.abs(e-s);o.textContent='Planned maximum loss: '+loss.toFixed(2)+' USDT · Approximate position size: '+qty.toFixed(6)+' units, before fees and slippage.'}
+function qSavePaper(){const pair=document.getElementById('q-paperpair').value,dir=document.getElementById('q-direction').value,entry=qn('q-paperentry');document.getElementById('q-paperout').textContent=entry>0?'Practice only: '+dir+' '+pair+' at '+entry+'. No real order was placed.':'Enter a valid practice entry price.'}
+</script></body></html>
