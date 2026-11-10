@@ -41,40 +41,7 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
 </style>
 <main class="wrap"><header><h1>QURBIT</h1><p>Beyond Finance. Into Intelligence. Sign in to manage your account, referrals and QURBIT tools.</p></header>
 <div class="notice"><strong>Important:</strong> No entry fee or payment is being collected. Any prize promotion requires legal review, permissions and published terms. No prize is guaranteed.</div>
-<nav class="q-nav" aria-label="QURBIT tools"><a href="#q-ai">QURBIT AI</a><a href="#q-risk">Risk Calculator</a><a href="#q-paper">Paper Trading</a><a href="/admin.html">Admin</a><button id="authToggle" type="button" aria-expanded="false">Login / Register</button></nav>
-<section id="q-plan" class="q-card" style="margin:18px 0;padding:18px;background:#101d30;border:1px solid #36516d;border-radius:12px">
-<h2 style="font-family:Georgia,serif;color:#f4d982;font-size:25px;margin:0 0 5px">QURBIT Wealth Projection Plan</h2>
-<p style="font-size:13px;color:#b8c8dc;margin:0 0 16px">Beyond Finance. Into Intelligence. · Daily Projection · 90-Day Chart · 5-Level Share</p>
-<div style="padding:14px;background:#172437;border:1px solid #405875;border-radius:9px;margin-bottom:14px">
-<h3 style="margin:0 0 5px;color:#f4d982;font-size:17px">Share Distribution</h3>
-<p style="margin:0;color:#d8e9f8">Total illustrative share pool: <strong>10%</strong>, shown in descending order:
-<table style="width:100%;margin-top:10px;border-collapse:collapse;color:#e7edf5;font-size:13px"><tbody>
-<tr style="border-top:1px solid #405875"><td style="padding:7px">Level 1 · First</td><td style="padding:7px;text-align:right;color:#f4d982;font-weight:700">4.0%</td></tr>
-<tr style="border-top:1px solid #405875"><td style="padding:7px">Level 2</td><td style="padding:7px;text-align:right;color:#f4d982;font-weight:700">3.0%</td></tr>
-<tr style="border-top:1px solid #405875"><td style="padding:7px">Level 3</td><td style="padding:7px;text-align:right;color:#f4d982;font-weight:700">1.5%</td></tr>
-<tr style="border-top:1px solid #405875"><td style="padding:7px">Level 4</td><td style="padding:7px;text-align:right;color:#f4d982;font-weight:700">1.0%</td></tr>
-<tr style="border-top:1px solid #405875"><td style="padding:7px">Level 5 · Fifth</td><td style="padding:7px;text-align:right;color:#f4d982;font-weight:700">0.5%</td></tr>
-<tr style="border-top:1px solid #d4af37"><td style="padding:8px;font-weight:700">Total</td><td style="padding:8px;text-align:right;color:#f4d982;font-weight:700">10.0%</td></tr>
-</tbody></table>
-<p style="margin:8px 0 0;color:#b8c8dc;font-size:12px">Illustrative allocation only; no referral commission or real-money payout is enabled.</p></p>
-</div>
-<h3 style="color:#f4d982;margin:14px 0 8px;font-size:18px">Daily Profit Projection Chart</h3>
-<p style="font-size:13px;color:#b8c8dc">Select an amount to view the 1–90 day arithmetic illustration.</p>
-<label for="q-plan-amount">Plan amount (USDT)</label>
-<select id="q-plan-amount" style="width:100%;padding:12px;background:#091525;border:1px solid #304763;border-radius:8px;color:white;font:inherit">
-<option value="12">12 USDT</option><option value="50">50 USDT</option><option value="100">100 USDT</option><option value="500">500 USDT</option><option value="1000">1,000 USDT</option><option value="5000">5,000 USDT</option><option value="10000">10,000 USDT</option><option value="50000">50,000 USDT</option><option value="100000">100,000 USDT</option><option value="500000">500,000 USDT</option><option value="1000000">1,000,000 USDT</option>
-</select>
-<div id="q-plan-summary" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:12px 0"></div>
-<details style="margin-top:12px"><summary style="cursor:pointer;color:#f4d982;font-weight:700">Show full daily chart (Day 1–90)</summary><div style="max-height:360px;overflow:auto;margin-top:10px"><table style="width:100%;border-collapse:collapse;font-size:13px;color:#e7edf5"><thead style="position:sticky;top:0;background:#172437"><tr><th style="padding:8px;text-align:left">Day</th><th style="padding:8px;text-align:right">Daily estimate</th><th style="padding:8px;text-align:right">Cumulative estimate</th></tr></thead><tbody id="q-plan-rows"></tbody></table></div></details>
-<section style="margin-top:16px;padding:15px;background:#101d30;border:1px solid #36516d;border-radius:10px">
-<h3 style="color:#f4d982;margin:0 0 5px;font-size:18px">Investor List · 100 Demo Profiles</h3>
-<p style="font-size:12px;color:#b8c8dc">Illustrative sample entries only — these are not real users, deposits, or investment records.</p>
-<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:13px;color:#e7edf5"><thead><tr style="color:#f4d982"><th style="padding:8px;text-align:left">Investor</th><th style="padding:8px;text-align:right">Amount (USDT)</th></tr></thead><tbody id="q-investor-rows"></tbody></table></div>
-<button type="button" id="q-investor-more" style="margin-top:12px;width:100%;padding:11px;border:1px solid #d4af37;border-radius:8px;background:transparent;color:#f4d982;font-weight:700">See More</button>
-</section>
-<p class="q-note" style="margin-top:14px">Simulation only: 8.333333333% is a user-provided hypothetical daily assumption, not an actual or guaranteed return. This chart does not represent a real investment offer. No deposits, pooled funds, commissions, transfers, or withdrawals are enabled.</p>
-</section>
-
+<nav class="q-nav" aria-label="QURBIT tools"><a href="/invest.html">Invest Plan</a><a href="#q-ai">QURBIT AI</a><a href="#q-risk">Risk Calculator</a><a href="#q-paper">Paper Trading</a><a href="/admin.html">Admin</a><button id="authToggle" type="button" aria-expanded="false">Login / Register</button></nav>
 <section class="card q-tools" id="q-ai">
 <h2>QURBIT AI · Market Intelligence</h2>
 <p>Educational indicator explainer. Enter values from a market chart to understand common indicators. No live market feed or trade signal is provided.</p>
