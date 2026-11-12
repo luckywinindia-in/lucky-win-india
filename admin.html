@@ -6,7 +6,7 @@
 </style>
 <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.119.0/dist/umd/supabase.js"></script>
 <script defer>
-(()=>{"use strict";const URL="https://othynttlaxymqjudntdq.supabase.co",KEY="sb_publishable_B9C5HIxMHlZ8ItrV7neBHw_LTF-H_ir",ADMIN="varudroy@gmail.com",RESET_REDIRECT="https://qurbit-admin-lucky-win-india.vercel.app/";const $=id=>document.getElementById(id);let sb,rows=[];
+(()=>{"use strict";const URL="https://othynttlaxymqjudntdq.supabase.co",KEY="sb_publishable_B9C5HIxMHlZ8ItrV7neBHw_LTF-H_ir",ADMIN="varudroy@gmail.com",RESET_REDIRECT="https://qurbit-admin-lucky-win-india.vercel.app/reset.html";const $=id=>document.getElementById(id);let sb,rows=[];
 const msg=(id,t,c="")=>{$(id).textContent=t;$(id).className="msg "+c},screen=s=>{const ids={login:"loginCard",recovery:"recoveryCard",denied:"deniedCard",password:"passwordCard",dashboard:"dashboard"};for(const id of Object.values(ids))$(id).classList.toggle("hidden",id!==ids[s])};
 const isAdmin=u=>u?.app_metadata?.role==="admin";
 async function load(u){if(!isAdmin(u)){screen("denied");return}screen("dashboard");$("signedIn").textContent="Signed in: "+u.email;msg("dataMsg","Loading accounts…");const {data,error}=await sb.from("profiles").select("id,full_name,phone,referral_code,referred_by,created_at").order("created_at",{ascending:false}).limit(1000);if(error){rows=[];render();msg("dataMsg","Database error: "+error.message,"error");return}rows=data||[];render();msg("dataMsg",rows.length+" account(s) loaded.","success")}
