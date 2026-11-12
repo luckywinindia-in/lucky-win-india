@@ -24,12 +24,51 @@ body{background:radial-gradient(ellipse at 50% 0%,#101e36 0%,#090d16 48%,#07090e
 
 @media(max-width:560px){.q-global-inner{gap:8px}.q-brand-mark{width:48px;height:48px}.q-brand-name{font-size:19px}.q-global-nav{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.q-global-nav a{text-align:center;padding:8px 4px;font-size:11px}}
 </style>
+<style id="qurbit-premium-theme">
+:root{color-scheme:dark;--q-bg:#050914;--q-panel:#08162b;--q-panel2:#0b2040;--q-gold:#f6c84a;--q-gold2:#ffdf86;--q-blue:#087cff;--q-line:#8c641f;--q-muted:#c5d5eb}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0!important;background:radial-gradient(ellipse at 50% 0%,#12396c 0%,#071326 42%,#03060d 100%)!important;color:#f7f8ff!important;font-family:system-ui,-apple-system,"Segoe UI",sans-serif!important}
+.q-global-head{position:relative;z-index:20;padding:10px 12px 12px;background:linear-gradient(180deg,#030712 0%,#071b38 100%);border-bottom:2px solid var(--q-gold);box-shadow:0 5px 28px #007bff55}
+.q-global-inner{width:min(100%,1180px);margin:auto;display:flex;flex-direction:column;align-items:center;gap:10px}
+.q-brand-link{display:flex;flex-direction:column;align-items:center;gap:5px;color:var(--q-gold2);text-decoration:none;text-align:center}
+.q-brand-mark{width:clamp(94px,17vw,150px)!important;height:clamp(94px,17vw,150px)!important;object-fit:cover;border-radius:50%;border:3px solid var(--q-gold);box-shadow:0 0 0 4px #071a36,0 0 30px #168bff99}
+.q-brand-name{display:block;font:900 clamp(23px,4vw,34px)/1.05 Georgia,serif;letter-spacing:1.5px;color:#ffd66a;text-shadow:0 2px 0 #8d4a00,0 0 16px #ffbf3888}
+.q-brand-tag{display:block;font-size:12px;color:#d8e8ff;font-weight:650;letter-spacing:.4px;margin-top:3px}
+.q-global-nav{display:flex;justify-content:center;align-items:center;gap:7px;flex-wrap:wrap;width:100%}
+.q-global-nav a{color:#ffe18a!important;text-decoration:none!important;border:1px solid #a77a28;border-radius:9px;padding:9px 12px;background:linear-gradient(180deg,#10264a,#071225);font-size:13px;font-weight:800;box-shadow:inset 0 0 12px #087cff22}
+.q-global-nav a:hover,.q-global-nav a:focus{border-color:#fff0b3;box-shadow:0 0 15px #087cff77}
+.banner{background:linear-gradient(90deg,#071225,#12396b,#071225)!important;color:#ffe18a!important;border-top:1px solid #0d83ff;border-bottom:1px solid #b8862c}
+main,.wrap{width:min(100%,1120px)!important;max-width:1120px!important;margin:0 auto!important;padding:20px 16px 52px!important}
+h1,h2,h3{color:#ffdb75!important;text-shadow:0 2px 12px #bd760e55}
+.card,.q-card,.chart-card{background:linear-gradient(145deg,#0b1c37,#050b18 78%)!important;border:1px solid #b7862d!important;border-radius:18px!important;box-shadow:0 0 0 1px #087cff44,inset 0 0 24px #087cff18,0 10px 30px #0008!important}
+button,.primary,.pdf-btn,.btn{border-radius:12px!important}
+input,select,textarea{background:#06152d!important;border:1px solid #5178a8!important;color:#fff!important;border-radius:10px!important;min-height:44px}
+a{overflow-wrap:anywhere}
+img,svg,video,canvas{max-width:100%}
+table{max-width:100%}
+footer{border-top:1px solid #956c27;padding-top:20px!important;color:#bcd5f6!important}
+@media(max-width:600px){
+ .q-global-head{padding:9px 9px 11px}
+ .q-brand-mark{width:112px!important;height:112px!important}
+ .q-brand-name{font-size:25px}
+ .q-brand-tag{font-size:11px}
+ .q-global-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+ .q-global-nav a{text-align:center;padding:9px 3px;font-size:11px;line-height:1.25;min-width:0}
+ main,.wrap{padding:14px 12px 38px!important}
+ .card{padding:16px!important;margin-top:14px!important}
+ h1{font-size:clamp(30px,9vw,42px)!important}
+ h2{font-size:23px!important}
+ .stats{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .table-wrap,.tablewrap{max-width:100%;overflow-x:auto}
+ button{max-width:100%}
+}
+@media(max-width:360px){.q-global-nav{grid-template-columns:repeat(2,minmax(0,1fr))}.q-brand-mark{width:98px!important;height:98px!important}}
+</style>
 </head>
 <body><div class="q-global-head"><div class="q-global-inner">
-<a class="q-brand-link" href="/" aria-label="QURBIT home">
-<img class="q-brand-mark" src="/assets/qurbit-coin.jpg" alt="QURBIT Coin premium logo" width="64" height="64" loading="eager" decoding="async"><span><span class="q-brand-name">QURBIT COIN</span><span class="q-brand-tag">Beyond Finance. Into Intelligence.</span></span></a>
-<nav class="q-global-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/trading.html">Live Trading &amp; AI</a><a href="/invest.html">Invest Plan</a><a href="/admin.html">Admin</a></nav>
-</div></div><div class="banner">QURBIT · Beyond Finance. Into Intelligence.</div>
+<a class="q-brand-link" href="/" aria-label="QURBIT home"><img class="q-brand-mark" src="/assets/qurbit-coin.jpg" alt="QURBIT Coin emblem" width="150" height="150" loading="eager" decoding="async"><span><span class="q-brand-name">QURBIT COIN</span><span class="q-brand-tag">Beyond Finance. Into Intelligence.</span></span></a>
+<nav class="q-global-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/trading.html">Live Trading &amp; AI</a><a href="/invest.html">Invest Plan</a><a href="/#referral">Referral</a><a href="/#winners">Winners</a><a href="/#rewards">Rewards</a><a href="/admin.html">Admin</a><a href="/#account">Sign In</a></nav></div></div><div class="banner">QURBIT · Beyond Finance. Into Intelligence.</div>
 <main class="wrap">
 <div class="top"><a href="/">← Main page</a><div class="top-actions"><a href="#share-plan">Share Plan ↓</a><button class="pdf-btn" type="button" onclick="window.print()">Download Plan PDF ↓</button></div></div>
 <header><h1>Invest Plan</h1><p>Illustrative projection · 1 day to 3 months</p><button class="pdf-btn" type="button" onclick="window.print()">Download Invest Plan PDF ↓</button></header>
