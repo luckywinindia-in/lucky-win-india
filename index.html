@@ -46,11 +46,28 @@ body{background:radial-gradient(ellipse at 50% 0%,#101e36 0%,#090d16 48%,#07090e
 
 @media(max-width:560px){.q-global-inner{gap:8px}.q-brand-mark{width:48px;height:48px}.q-brand-name{font-size:19px}.q-global-nav{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.q-global-nav a{text-align:center;padding:8px 4px;font-size:11px}}
 </style>
+<style id="qurbit-refresh">
+body{background:radial-gradient(ellipse at 50% 0%,#102b50 0%,#071326 42%,#03060d 100%)!important;color:#f7f8ff}
+.wrap{max-width:1120px!important;padding:0 14px 48px!important}
+.q-global-head{background:linear-gradient(180deg,#030712,#071b38)!important;border-bottom:2px solid #f6c84a!important;box-shadow:0 5px 28px #007bff55}
+.q-global-inner{display:flex;flex-direction:column;align-items:center;gap:10px}
+.q-brand-link{display:flex;flex-direction:column;align-items:center;text-align:center;text-decoration:none}
+.q-brand-mark{width:clamp(120px,22vw,190px)!important;height:clamp(120px,22vw,190px)!important;border-radius:50%;object-fit:cover;border:4px solid #f6c84a;box-shadow:0 0 0 5px #071a36,0 0 34px #168bff99}
+.q-brand-name{display:block;font:900 clamp(25px,5vw,38px) Georgia,serif;letter-spacing:1.5px;color:#ffdc70}
+.q-brand-tag{display:block;font-size:12px;color:#d8e8ff}
+.q-global-nav{display:flex;justify-content:center;flex-wrap:wrap;gap:7px;width:100%}
+.q-global-nav a{color:#ffe18a!important;text-decoration:none;border:1px solid #a77a28;border-radius:9px;padding:9px 12px;background:linear-gradient(#10264a,#071225);font-size:13px;font-weight:800}
+.card,.q-tools .q-card{background:linear-gradient(145deg,#102b50,#050b18)!important;border:1px solid #b7862d!important;border-radius:17px!important;box-shadow:0 0 0 1px #087cff44,inset 0 0 22px #087cff20!important}
+h1,h2,h3{color:#ffdb75!important}
+input,select{background:#06152d!important;color:white!important;border:1px solid #5178a8!important;border-radius:10px!important;min-height:44px}
+.primary{background:linear-gradient(#ffe17b,#e69c16)!important;color:#111!important}
+@media(max-width:600px){.q-global-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.q-global-nav a{text-align:center;padding:9px 4px;font-size:12px}.wrap{padding:0 10px 35px!important}.card{padding:15px!important}.q-brand-mark{width:132px!important;height:132px!important}}
+</style>
 </head>
 <body><div class="q-global-head"><div class="q-global-inner">
 <a class="q-brand-link" href="/" aria-label="QURBIT home">
 <img class="q-brand-mark" src="/assets/qurbit-coin.jpg" alt="QURBIT Coin premium logo" width="64" height="64" loading="eager" decoding="async"><span><span class="q-brand-name">QURBIT COIN</span><span class="q-brand-tag">Beyond Finance. Into Intelligence.</span></span></a>
-<nav class="q-global-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/trading.html">Live Trading &amp; AI</a><a href="/invest.html">Invest Plan</a><a href="/admin.html">Admin</a></nav>
+<nav class="q-global-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/trading.html">Live Trading &amp; AI</a><a href="/invest.html">Invest Plan</a><a href="/#referral">Referral</a><a href="/#rewards">Rewards</a><a href="/admin.html">Admin</a></nav>
 </div></div><div class="banner">QURBIT · Account and intelligence platform</div>
 <style>
 .q-nav{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0}.q-nav a{color:#f4d982;border:1px solid #40351c;padding:8px 11px;border-radius:8px;text-decoration:none;font-size:13px}
@@ -80,13 +97,7 @@ body{background:radial-gradient(ellipse at 50% 0%,#101e36 0%,#090d16 48%,#07090e
 <a href="/invest.html" style="display:block;text-align:center;padding:13px;border-radius:8px;background:#d4af37;color:#111;text-decoration:none;font-weight:800">View Full Invest Plan &amp; Calculator →</a>
 <p class="q-note" style="margin-top:12px">Illustrative figures only. These are not real or payable referral commissions, investment returns, or verified investor records. Deposits, payouts, transfers and withdrawals remain disabled.</p>
 </section>
-<section class="card q-tools" id="q-demo-investors" style="border-color:#d4af37;background:#111">
-<h2 style="color:#f4d982">Investor List · 100 Sample Entries</h2>
-<p style="color:#f4d982;font-weight:700">DEMO DATA ONLY — these are fictional names and example amounts, not real investors or actual investments.</p>
-<p>Sample amounts are displayed in USDT, sorted from highest to lowest.</p>
-<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px" id="q-demo-investor-list" aria-live="polite"></div>
-<p class="q-note">All 100 entries below are generated examples. They do not represent deposits, account balances, verified users, or live transactions.</p>
-</section>
+
 <section class="card q-tools" id="qurbit-withdrawal-demo"><h2>90-Day Lock &amp; 100 USDT Profit Preview</h2><p>100 USDT principal · illustrative daily estimate 8.333333333% · 90-day arithmetic profit: 750.00 USDT · illustrative total: 850.00 USDT.</p><p class="q-note">Demo calculation only. No funds are accepted, locked, or withdrawn. The rate is not a real or guaranteed return.</p><a href="/invest.html#qurbit-withdrawal-demo" style="display:block;text-align:center;padding:12px;border-radius:8px;background:#d4af37;color:#111;text-decoration:none;font-weight:800">Open 90-Day Lock &amp; Withdrawal Preview →</a></section>
 <nav class="q-nav" aria-label="QURBIT tools"><a href="/invest.html">Invest Plan</a><a href="/trading.html">Live Trading + AI Bot</a><a href="#q-ai">QURBIT AI</a><a href="#q-risk">Risk Calculator</a><a href="#q-paper">Paper Trading</a><a href="/admin.html">Admin</a><button id="authToggle" type="button" aria-expanded="false">Login / Register</button></nav>
 <section class="card q-tools" id="q-ai">
@@ -123,6 +134,16 @@ body{background:radial-gradient(ellipse at 50% 0%,#101e36 0%,#090d16 48%,#07090e
 <div class="q-out" id="q-paperout" aria-live="polite">No practice entry recorded yet.</div>
 </section>
 
+<section class="card q-tools" id="profit-preview" style="border-color:#d4af37">
+<h2>Profit &amp; Growth Simulator</h2>
+<p>Try your own hypothetical figures. These cards are mathematical examples only—not expected earnings, an investment offer, or a promise.</p>
+<label for="q-profit-amount">Example amount (USDT)</label><input id="q-profit-amount" type="number" min="1" max="10000000" value="100" inputmode="decimal">
+<label for="q-profit-rate">Hypothetical change per day (%)</label><input id="q-profit-rate" type="number" min="-100" max="100" step="0.1" value="1" inputmode="decimal">
+<div class="q-grid" id="q-profit-cards" aria-live="polite" style="margin-top:14px">
+<div class="q-out"><strong>1 Day</strong><div id="q-profit-1">—</div></div><div class="q-out"><strong>30 Days</strong><div id="q-profit-30">—</div></div>
+<div class="q-out"><strong>60 Days</strong><div id="q-profit-60">—</div></div><div class="q-out"><strong>90 Days</strong><div id="q-profit-90">—</div></div></div>
+<p class="q-note">Simple arithmetic only; no compounding, no real account balance and no money is deposited or paid. Actual crypto prices can fall and losses are possible. QURBIT does not guarantee profit.</p>
+</section>
 <section class="card q-auth-drawer hidden" id="authCard" aria-label="Login and registration"><div class="tabs" role="tablist" aria-label="Account access"><button class="tab" id="signupTab" type="button" role="tab" aria-selected="true">Create account</button><button class="tab" id="loginTab" type="button" role="tab" aria-selected="false">Log in</button></div>
 <form id="authForm"><div id="signupFields"><label for="fullName">Full name</label><input id="fullName" autocomplete="name" maxlength="80" required><label for="phone">Mobile number</label><input id="phone" inputmode="numeric" autocomplete="tel" maxlength="10" pattern="[0-9]{10}" placeholder="10-digit mobile number" required></div>
 <label for="email">Email address</label><input id="email" type="email" autocomplete="email" required><label for="password">Password</label><input id="password" type="password" autocomplete="new-password" minlength="8" required><button class="primary" id="submitBtn">Create account</button><button class="textButton hidden" id="forgotPasswordBtn" type="button">Forgot password?</button><p class="msg" id="authMsg" role="status" aria-live="polite"></p></form><div id="resetPanel" class="hidden"><h2>Set a new password</h2><p>Enter and confirm your new password.</p><form id="resetPasswordForm"><label for="resetNewPassword">New password</label><input id="resetNewPassword" type="password" minlength="8" autocomplete="new-password" required><label for="resetConfirmPassword">Confirm new password</label><input id="resetConfirmPassword" type="password" minlength="8" autocomplete="new-password" required><button class="primary" id="resetSaveBtn">Save new password</button><p class="msg" id="resetMsg" role="status" aria-live="polite"></p></form></div></section>
@@ -131,27 +152,10 @@ body{background:radial-gradient(ellipse at 50% 0%,#101e36 0%,#090d16 48%,#07090e
 <footer>QURBIT · Beyond Finance. Into Intelligence. · Account access only.<br><a href="/admin.html" style="display:inline-block;margin-top:12px;color:#f4d982">Admin sign in</a></footer></main>
 <script>
 function qn(id){return Number(document.getElementById(id).value)}
+function qProfitRender(){const a=Number(document.getElementById('q-profit-amount')?.value),r=Number(document.getElementById('q-profit-rate')?.value);if(!(a>0)||!Number.isFinite(r)||Math.abs(r)>100)return;[1,30,60,90].forEach(d=>{const p=a*r/100*d;const el=document.getElementById('q-profit-'+d);if(el)el.textContent='Illustrative change: '+p.toFixed(2)+' USDT · Example total: '+(a+p).toFixed(2)+' USDT'})}
+document.addEventListener('DOMContentLoaded',()=>{qProfitRender();['q-profit-amount','q-profit-rate'].forEach(id=>document.getElementById(id)?.addEventListener('input',qProfitRender))});
 function qAnalyse(){const pair=document.getElementById('q-pair').value||'Selected market',price=qn('q-price'),rsi=qn('q-rsi'),a=qn('q-ema1'),b=qn('q-ema2'),o=document.getElementById('q-analysis');if(!(price>0)||!(rsi>=0&&rsi<=100)||!(a>0)||!(b>0)){o.textContent='Enter a positive price, both positive EMA values, and RSI from 0 to 100.';return}const trend=a>b?'Short EMA is above Long EMA (upward momentum indication).':'Short EMA is below or equal to Long EMA (downward/flat momentum indication).';const momentum=rsi<30?'RSI is in the traditionally oversold zone.':rsi>70?'RSI is in the traditionally overbought zone.':'RSI is between 30 and 70.';o.textContent=pair+' · Price: '+price+' USDT. '+trend+' '+momentum+' Educational context only; not a buy/sell instruction.'}
 function qCalcRisk(){const bal=qn('q-balance'),rp=qn('q-riskpct'),e=qn('q-entry'),s=qn('q-stop'),o=document.getElementById('q-riskout');if(!(bal>0)||!(rp>0&&rp<=5)||!(e>0)||!(s>0)||e===s){o.textContent='Enter a positive balance, risk up to 5%, and different entry/stop-loss prices.';return}const loss=bal*rp/100,qty=loss/Math.abs(e-s);o.textContent='Planned maximum loss: '+loss.toFixed(2)+' USDT · Approximate position size: '+qty.toFixed(6)+' units, before fees and slippage.'}
-function qRenderDemoInvestors(){
-const first=['Aarav','Vivaan','Aditya','Vihaan','Arjun','Sai','Reyansh','Ayaan','Krishna','Ishaan','Shaurya','Atharv','Dhruv','Kabir','Ritvik','Anaya','Diya','Aadhya','Saanvi','Ira'];
-const last=['Sharma','Verma','Patel','Gupta','Yadav','Singh','Kumar','Mishra','Jain','Agarwal','Reddy','Mehta','Shah','Das','Joshi','Rao','Nair','Chauhan','Sahu','Tiwari'];
-const list=document.getElementById('q-demo-investor-list');if(!list)return;
-const rows=Array.from({length:100},(_,i)=>({name:first[i%first.length]+' '+last[(i*7+Math.floor(i/first.length))%last.length],amount:Math.round((1000000-(i*999988/99))*100)/100}));
-rows.sort((a,b)=>b.amount-a.amount);
-let expanded=false;
-const render=()=>{
- const visible=expanded?rows:rows.slice(0,5);
- list.innerHTML=visible.map((r,i)=>'<div style="min-width:0;display:flex;align-items:center;justify-content:space-between;gap:6px;padding:9px 8px;border:1px solid #5a4920;border-radius:8px;background:#17140d"><span style="font-size:12px;color:#e8dfc8;overflow-wrap:anywhere">'+(i+1)+'. '+r.name+'</span><strong style="font-size:12px;color:#f4d982;text-align:right;white-space:nowrap">'+r.amount.toLocaleString('en-US',{maximumFractionDigits:2})+' USDT</strong></div>').join('');
- const toggle=document.createElement('button');
- toggle.type='button';toggle.textContent=expanded?'See Less':'See More (95 more)';
- toggle.setAttribute('aria-expanded',String(expanded));
- toggle.style.cssText='grid-column:1/-1;width:100%;padding:11px;border:1px solid #d4af37;border-radius:8px;background:transparent;color:#f4d982;font-weight:750;font-size:14px';
- toggle.addEventListener('click',()=>{expanded=!expanded;render()});
- list.appendChild(toggle);
-};
-render();
-}
-document.addEventListener('DOMContentLoaded',qRenderDemoInvestors);
+
 function qSavePaper(){const pair=document.getElementById('q-paperpair').value,dir=document.getElementById('q-direction').value,entry=qn('q-paperentry');document.getElementById('q-paperout').textContent=entry>0?'Practice only: '+dir+' '+pair+' at '+entry+'. No real order was placed.':'Enter a valid practice entry price.'}
 </script></body></html>
