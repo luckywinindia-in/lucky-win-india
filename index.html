@@ -31,8 +31,32 @@ const {data,error}=await sb.auth.getSession();if(error)say("authMsg","Could not 
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",start,{once:true});else start();
 })();
 </script>
+<style>
+.q-global-head{position:relative;z-index:5;background:linear-gradient(110deg,#050912,#101b34 55%,#050912);border-bottom:1px solid #b98a25;box-shadow:0 5px 22px #006dff25;padding:10px 14px}
+.q-global-inner{max-width:1180px;margin:auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.q-brand-link{display:flex;align-items:center;gap:10px;color:#f7d77a;text-decoration:none;margin-right:auto;min-width:190px}
+.q-brand-mark{width:58px;height:58px;flex:none;filter:drop-shadow(0 0 8px #168bff88)}
+.q-brand-name{font:900 22px/1 Georgia,serif;letter-spacing:1px;color:#ffd76b;text-shadow:0 2px 8px #a55b00}
+.q-brand-tag{font-size:10px;color:#f4d982;letter-spacing:.3px;margin-top:5px}
+.q-global-nav{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.q-global-nav a{color:#f4d982;text-decoration:none;border:1px solid #65501f;border-radius:8px;padding:7px 10px;font-size:12px;font-weight:700}
+.q-global-nav a:hover{background:#30250d;border-color:#e6b94b}
+@media(max-width:560px){.q-global-inner{gap:8px}.q-brand-mark{width:48px;height:48px}.q-brand-name{font-size:19px}.q-global-nav{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.q-global-nav a{text-align:center;padding:8px 4px;font-size:11px}}
+</style>
 </head>
-<body><div class="banner">QURBIT · Account and intelligence platform</div>
+<body><div class="q-global-head"><div class="q-global-inner">
+<a class="q-brand-link" href="/" aria-label="QURBIT home">
+<svg class="q-brand-mark" viewBox="0 0 100 100" role="img" aria-label="QURBIT coin emblem">
+<defs><linearGradient id="qg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff1a3"/><stop offset=".42" stop-color="#f2b927"/><stop offset="1" stop-color="#8c4c08"/></linearGradient><radialGradient id="qb"><stop stop-color="#0b6cff"/><stop offset="1" stop-color="#03142e"/></radialGradient></defs>
+<circle cx="50" cy="50" r="47" fill="#050a16" stroke="url(#qg)" stroke-width="5"/><circle cx="50" cy="50" r="39" fill="none" stroke="#ffdc72" stroke-width="1.5"/>
+<circle cx="50" cy="47" r="27" fill="url(#qb)" stroke="#f5c64d" stroke-width="2"/>
+<path d="M34 38a19 19 0 1 1 28 22l9 8-5 5-10-9a19 19 0 0 1-22-26z" fill="none" stroke="url(#qg)" stroke-width="7" stroke-linecap="round"/>
+<path d="M39 46h22M50 35v24M39 55l22-18" stroke="#7bd9ff" stroke-width="1" opacity=".85"/>
+<path d="M18 58v-9h4v9m4-14v14h4V39m42 19v-9h4v9m4-15v15h4V40" fill="#37d987" stroke="#37d987" stroke-width="1"/>
+<path d="M50 5l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z" fill="url(#qg)"/>
+</svg><span><span class="q-brand-name">QURBIT COIN</span><span class="q-brand-tag">Beyond Finance. Into Intelligence.</span></span></a>
+<nav class="q-global-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/trading.html">Live Trading &amp; AI</a><a href="/invest.html">Invest Plan</a><a href="/admin.html">Admin</a></nav>
+</div></div><div class="banner">QURBIT · Account and intelligence platform</div>
 <style>
 .q-nav{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0}.q-nav a{color:#f4d982;border:1px solid #40351c;padding:8px 11px;border-radius:8px;text-decoration:none;font-size:13px}
 .q-tools{margin-top:24px}.q-tools .q-card{margin-top:14px;padding:20px;background:#101d30;border:1px solid #29405b;border-radius:12px}
