@@ -76,6 +76,53 @@ footer{border-top:1px solid #956c27;padding-top:20px!important;color:#bcd5f6!imp
 }
 @media(max-width:360px){.q-global-nav{grid-template-columns:repeat(2,minmax(0,1fr))}.q-brand-mark{width:98px!important;height:98px!important}}
 </style>
+<style id="qurbit-premium-override">
+:root{--q-bg:#030914;--q-navy:#06152c;--q-blue:#087cff;--q-gold:#ffd15b;--q-gold2:#fff0a8}
+html{background:#030914!important}
+body{min-height:100vh!important;background:
+radial-gradient(ellipse at 50% 10%,rgba(0,104,255,.30),transparent 38%),
+radial-gradient(ellipse at 8% 48%,rgba(0,75,180,.19),transparent 34%),
+radial-gradient(ellipse at 92% 74%,rgba(0,75,180,.17),transparent 34%),
+linear-gradient(180deg,#020711 0%,#071a36 38%,#030914 100%)!important;color:#f7f8ff!important}
+body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:
+repeating-linear-gradient(112deg,transparent 0 105px,rgba(0,130,255,.075) 106px,transparent 109px 205px),
+radial-gradient(circle at 50% 34%,rgba(13,107,255,.12),transparent 46%);
+}
+.q-global-head{position:relative!important;overflow:hidden!important;padding:18px 12px 15px!important;background:
+radial-gradient(ellipse at 50% 30%,#123d78 0%,#07172e 48%,#020711 100%)!important;
+border-bottom:3px solid #f6c84a!important;box-shadow:0 5px 28px #087cff88,0 12px 40px #000!important}
+.q-global-head:before,.q-global-head:after{content:"";position:absolute;left:-8%;width:116%;height:3px;pointer-events:none;background:linear-gradient(90deg,transparent,#087cff,#fff0a8,#f6c84a,#087cff,transparent);box-shadow:0 0 16px #087cff,0 0 24px #f6c84a}
+.q-global-head:before{top:9px}.q-global-head:after{bottom:7px}
+.q-global-inner{width:min(100%,1200px)!important;gap:14px!important}
+.q-brand-link{position:relative!important;isolation:isolate;display:flex!important;flex-direction:column!important;align-items:center!important;gap:8px!important;padding:8px 12px 12px!important}
+.q-brand-link:before{content:"";position:absolute;z-index:-1;top:0;left:50%;transform:translateX(-50%);width:clamp(178px,30vw,248px);aspect-ratio:1;border-radius:50%;background:conic-gradient(from 0deg,#fff0a8,#b77b12,#fff4b8,#087cff,#e6a52b,#fff0a8);box-shadow:0 0 0 5px #06152c,0 0 24px #087cff,0 0 48px #f6c84a88;opacity:.92}
+.q-brand-mark{display:block!important;width:clamp(168px,28vw,226px)!important;height:clamp(168px,28vw,226px)!important;max-width:none!important;object-fit:cover!important;border-radius:50%!important;border:5px solid #ffe18a!important;box-shadow:0 0 0 5px #071a36,0 0 0 8px #c18b26,0 0 28px #087cff,0 0 42px #f6c84a99!important;filter:drop-shadow(0 8px 8px #000)!important}
+.q-brand-name{display:block!important;font:900 clamp(26px,5vw,42px)/1 Georgia,serif!important;letter-spacing:2px!important;color:#ffe18a!important;text-shadow:0 2px 0 #9c5c0b,0 4px 0 #382100,0 7px 14px #000,0 0 22px #f6c84a!important}
+.q-brand-tag{display:block!important;font-size:13px!important;color:#dcecff!important;letter-spacing:.8px!important;text-shadow:0 2px 8px #000!important}
+.q-global-nav{display:flex!important;flex-wrap:wrap!important;justify-content:center!important;gap:8px!important;width:100%!important}
+.q-global-nav a{border:1px solid #e2b64d!important;border-radius:12px!important;background:linear-gradient(180deg,#102d56,#061329)!important;color:#ffe18a!important;padding:10px 13px!important;font-size:13px!important;font-weight:850!important;box-shadow:inset 0 0 12px #087cff33,0 3px 10px #0009!important}
+.q-global-nav a:hover{background:linear-gradient(180deg,#264c7d,#10213e)!important;box-shadow:0 0 18px #087cffaa!important}
+.banner{background:linear-gradient(90deg,#020711,#0a2c58,#020711)!important;color:#ffe18a!important;border-top:1px solid #087cff!important;border-bottom:2px solid #c28b24!important;text-shadow:0 0 10px #f6c84a77!important}
+main,.wrap{width:min(100%,1120px)!important;max-width:1120px!important;margin-left:auto!important;margin-right:auto!important}
+.card,.notice,.q-out,.stat,.chart-card,.metric,.signal,.q-investor-empty{background:linear-gradient(145deg,rgba(13,39,75,.94),rgba(4,14,30,.97))!important;border:1px solid #b8872a!important;border-radius:17px!important;box-shadow:inset 0 0 22px rgba(8,124,255,.12),0 0 14px rgba(0,113,255,.18),0 8px 22px #0008!important}
+.card h2,.card h3{color:#ffe18a!important;text-shadow:0 0 12px #f6c84a44!important}
+.card p{color:#d0def2!important}
+button,.primary,.btn,.pdf-btn{border:1px solid #fff0a8!important;background:linear-gradient(180deg,#ffe58a 0%,#f0b52e 55%,#a96a0a 100%)!important;color:#171006!important;box-shadow:0 4px 0 #704707,0 7px 15px #0009!important;font-weight:900!important}
+input,select,textarea{background:#041126!important;border:1px solid #52749d!important;color:#fff!important}
+footer{color:#bcd3f3!important}
+@media(max-width:600px){
+.q-global-head{padding:18px 9px 13px!important}
+.q-brand-mark{width:clamp(176px,56vw,220px)!important;height:clamp(176px,56vw,220px)!important}
+.q-brand-link:before{width:clamp(188px,60vw,236px)}
+.q-brand-name{font-size:clamp(28px,8vw,38px)!important}
+.q-brand-tag{font-size:12px!important}
+.q-global-nav{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important}
+.q-global-nav a{text-align:center!important;padding:11px 5px!important;font-size:12px!important}
+main,.wrap{width:100%!important;max-width:100%!important;padding-left:12px!important;padding-right:12px!important}
+.card{padding:16px!important;margin-top:17px!important}
+}
+@media(prefers-reduced-motion:no-preference){.q-brand-mark{animation:qCoinGlow 5s ease-in-out infinite alternate}@keyframes qCoinGlow{from{filter:drop-shadow(0 6px 5px #000) drop-shadow(0 0 8px #087cff)}to{filter:drop-shadow(0 6px 7px #000) drop-shadow(0 0 23px #f6c84a)}}}
+</style>
 </head>
 <body><div class="q-global-head"><div class="q-global-inner">
 <a class="q-brand-link" href="/" aria-label="QURBIT home"><img class="q-brand-mark" src="/assets/qurbit-coin.jpg" alt="QURBIT Coin emblem" width="150" height="150" loading="eager" decoding="async"><span><span class="q-brand-name">QURBIT COIN</span><span class="q-brand-tag">Beyond Finance. Into Intelligence.</span></span></a>
