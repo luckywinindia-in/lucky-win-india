@@ -212,7 +212,7 @@ footer{color:#d5e4fb!important;border-top:1px solid #b88a2d!important;padding-to
 .q-poster-hero{position:relative;isolation:isolate;overflow:hidden;width:100%;margin:0 auto 24px;padding:25px 16px 22px;text-align:center;background:radial-gradient(ellipse at 50% 45%,rgba(0,122,255,.48),transparent 44%),linear-gradient(180deg,#020711 0%,#041c40 45%,#020711 100%);border-bottom:3px solid #dba92f;box-shadow:0 0 28px #087dff66}
 .q-poster-hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(115deg,transparent 20%,rgba(0,137,255,.25) 21%,transparent 23%,transparent 76%,rgba(255,199,66,.18) 77%,transparent 79%),radial-gradient(circle at 50% 50%,rgba(0,117,255,.18),transparent 48%)}
 .q-poster-hero:after{content:"";position:absolute;z-index:-1;left:50%;top:120px;width:min(82vw,500px);aspect-ratio:1;transform:translateX(-50%);border-radius:50%;border:2px solid #f5c64d;box-shadow:0 0 0 8px rgba(0,116,255,.2),0 0 35px #087dff, inset 0 0 35px #087dff;background:radial-gradient(circle at 35% 28%,#4bc6ff 0%,#087dff 19%,#07336d 45%,#020b1a 68%);opacity:.72}
-.q-hero-coin{width:clamp(180px,45vw,270px);height:clamp(180px,45vw,270px);object-fit:cover;border-radius:50%;border:5px solid #ffe28a;outline:5px solid #a8731d;outline-offset:4px;box-shadow:0 0 0 10px #071b38,0 0 34px #087dff,0 0 58px #f6c34b88}
+.q-header-wordmark{color:#ffe08a;font:900 17px Georgia,serif;letter-spacing:3px;text-align:center;padding:10px 4px;text-shadow:0 2px 8px #087dff88}\n .q-hero-coin{display:block;width:clamp(210px,48vw,300px);height:clamp(210px,48vw,300px);margin:12px auto 18px;object-fit:cover;border-radius:50%;border:5px solid #ffe28a;outline:5px solid #a8731d;outline-offset:4px;box-shadow:0 0 0 10px #071b38,0 0 34px #087dff,0 0 58px #f6c34b88}
 .q-hero-title{margin:24px 0 0!important;font:900 clamp(38px,8vw,76px)/1 Georgia,serif!important;letter-spacing:1px!important;color:#ffd65e!important;text-shadow:0 3px 0 #8b4d07,0 6px 0 #352006,0 10px 20px #000,0 0 25px #ffbe32!important}
 .q-hero-kicker{margin:8px 0!important;font-size:clamp(17px,4vw,27px)!important;font-weight:900!important;color:#fff!important;text-shadow:0 3px 10px #000!important}
 .q-hero-sub{max-width:760px;margin:0 auto 15px!important;font-size:clamp(13px,3vw,18px)!important;font-weight:750!important;color:#e6f2ff!important}
@@ -228,7 +228,7 @@ footer{color:#d5e4fb!important;border-top:1px solid #b88a2d!important;padding-to
 .q-hero-trading a{display:inline-block;padding:11px 20px;border-radius:999px;background:linear-gradient(180deg,#fff0a8,#eeb12b);color:#111;text-decoration:none;font-weight:950;white-space:nowrap}
 @media(max-width:600px){
 .q-global-inner{padding:10px!important}
-.q-brand-mark{width:112px!important;height:112px!important}
+.q-brand-mark{display:none!important}
 .q-global-nav{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;width:100%!important}
 .q-global-nav a{text-align:center!important;padding:11px 5px!important;font-size:12px!important}
 .q-poster-hero{padding:20px 10px 18px!important}
@@ -242,9 +242,8 @@ main,.wrap{padding-left:12px!important;padding-right:12px!important}
 </style>
 </head>
 <body><div class="q-global-head"><div class="q-global-inner">
-<a class="q-brand-link" href="/" aria-label="QURBIT home">
-<img class="q-brand-mark" src="/assets/qurbit-coin.jpg" alt="QURBIT Coin premium logo" width="64" height="64" loading="eager" decoding="async"><span><span class="q-brand-name">QURBIT COIN</span><span class="q-brand-tag">Beyond Finance. Into Intelligence.</span></span></a>
-<nav class="q-global-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/trading.html">Live Trading &amp; AI</a><a href="/invest.html">Invest Plan</a><a href="/#investors">Investor List</a><a href="/#referral">Referral</a><a href="/admin.html">Admin</a></nav>
+<div class="q-header-wordmark" aria-label="QURBIT">QURBIT</div>
+<nav class="q-global-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/trading.html">Live Trading &amp; AI</a><a href="/invest.html">Invest Plan</a><a href="/#referral">Referral</a><a href="/admin.html">Admin</a></nav>
 </div></div><div class="banner">QURBIT COIN · Beyond Finance. Into Intelligence.</div><section class="q-poster-hero">
 <div class="q-hero-orbit" aria-hidden="true"><span>✦</span><span>🌍</span><span>✈️</span><span>🚄</span><span>✦</span></div>
 <img class="q-hero-coin" src="/assets/qurbit-coin.jpg" alt="QURBIT COIN emblem" loading="eager">
@@ -289,19 +288,9 @@ main,.wrap{padding-left:12px!important;padding-right:12px!important}
 <a href="/invest.html" style="display:block;text-align:center;padding:13px;border-radius:8px;background:#d4af37;color:#111;text-decoration:none;font-weight:800">View Full Invest Plan &amp; Calculator →</a>
 <p class="q-note" style="margin-top:12px">Illustrative figures only. These are not real or payable referral commissions, investment returns, or verified investor records. Deposits, payouts, transfers and withdrawals remain disabled.</p>
 </section>
-<section class="card q-tools" id="investors" style="border-color:#f6c84a">
-<h2>QURBIT Investor Community</h2>
-<p>Investor directory · Public listings are shown only after a member has explicitly agreed to be featured.</p>
-<div class="q-investor-empty">
-<div class="q-investor-orbit" aria-hidden="true">✦</div>
-<strong>Community listings are being prepared</strong>
-<span>Verified member profiles will appear here after identity checks and public-display consent. Account names, phone numbers and email addresses are never published automatically.</span>
-<a href="#authCard" id="investorJoin">Create an account to join the community →</a>
-</div>
-<p class="q-note">This section does not represent a verified investment register, proof of funds, or a promise of returns. Deposits, withdrawals and investment collection remain disabled.</p>
-</section>
 
-<section class="card q-tools" id="qurbit-withdrawal-demo"><h2>90-Day Lock &amp; 100 USDT Profit Preview</h2><p>100 USDT principal · illustrative daily estimate 8.333333333% · 90-day arithmetic profit: 750.00 USDT · illustrative total: 850.00 USDT.</p><p class="q-note">Demo calculation only. No funds are accepted, locked, or withdrawn. The rate is not a real or guaranteed return.</p><a href="/invest.html#qurbit-withdrawal-demo" style="display:block;text-align:center;padding:12px;border-radius:8px;background:#d4af37;color:#111;text-decoration:none;font-weight:800">Open 90-Day Lock &amp; Withdrawal Preview →</a></section>
+
+
 <nav class="q-nav" aria-label="QURBIT tools"><a href="/invest.html">Invest Plan</a><a href="/trading.html">Live Trading + AI Bot</a><a href="#q-ai">QURBIT AI</a><a href="#q-risk">Risk Calculator</a><a href="#q-paper">Paper Trading</a><a href="/admin.html">Admin</a><button id="authToggle" type="button" aria-expanded="false">Login / Register</button></nav>
 <section class="card q-tools" id="q-ai">
 <h2>QURBIT AI · Market Intelligence</h2>
